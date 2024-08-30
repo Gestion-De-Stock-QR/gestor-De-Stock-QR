@@ -1,6 +1,6 @@
 import React from 'react'
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import { Home } from '../components/pages/Home/Home'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Home } from '../components/Home/Home'
 import { NuevoProducto } from '../components/pages/Producto/NuevoProducto'
 
 
