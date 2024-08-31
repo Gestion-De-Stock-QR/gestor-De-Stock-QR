@@ -10,10 +10,16 @@ export const Home = () => {
     navigate('/agregar-nuevo-producto');
   }
 
+  const handleConsultarStock=()=>{
+    navigate('/consultar-stock')
+  }
+
 
   return (
     <div>
       <button onClick={ handleAgregarProducto }> Agregar producto</button>
+
+      <button onClick={ handleConsultarStock }> Consultar stock </button>
 
         <button>Actualizar stock</button>
 
