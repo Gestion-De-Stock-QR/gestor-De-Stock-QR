@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import '../../../styles/producto.css';
+import { useNavigate } from 'react-router-dom';
 
 export const NuevoProducto = () => {
   const [nombreDelProducto, setNombreDelProducto] = useState('');
   const [qrCodeData, setQrCodeData] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setNombreDelProducto(event.target.value);
@@ -32,8 +34,13 @@ export const NuevoProducto = () => {
     document.body.removeChild(downloadLink);
   };
 
+  const handleAtras = ()=>{
+    navigate('/');
+  }
+
   return (
     <div className="container">
+        <button onClick={ handleAtras }>atras</button>
       <h2>Generar QR para Producto</h2>
       <form>
         <div className="form-group">
