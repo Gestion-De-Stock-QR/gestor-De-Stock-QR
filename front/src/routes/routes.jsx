@@ -4,20 +4,16 @@ import { Home } from '../components/Home/Home'
 import { NuevoProducto } from '../components/pages/Producto/NuevoProducto'
 import { ActualizarStock } from '../components/pages/Producto/ActualizarStock'
 import { MisProductos } from '../components/pages/Producto/MisProductos'
-import { Login } from '../components/pages/Login/Login'
-
-
-
-
+// import { Login } from '../components/pages/Login/Login'
 
 
 const router= createBrowserRouter([
+    // {
+    //     path:'/',
+    //     element: <Login/>
+    // },
     {
-        path:'/',
-        element: <Login/>
-    },
-    {
-      path: '/home',
+      path: '/',
       element: <Home/>
     },
     {
