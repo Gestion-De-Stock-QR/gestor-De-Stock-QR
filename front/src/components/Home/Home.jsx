@@ -10,9 +10,6 @@ export const Home = () => {
     navigate('/agregar-nuevo-producto');
   }
 
-  const handleConsultarStock=()=>{
-    navigate('/consultar-stock')
-  }
 
   const handleActualizarStock=()=>{
     navigate('/actualizar-stock')
@@ -27,8 +24,6 @@ export const Home = () => {
       <h1>Costa Nevada</h1>
 
       <button onClick={ handleAgregarProducto }>Agregar producto</button>
-
-      <button onClick={ handleConsultarStock }>Consultar stock</button>
 
       <button onClick={ handleActualizarStock }>Actualizar stock</button>
 
