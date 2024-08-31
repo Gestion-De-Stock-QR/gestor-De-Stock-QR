@@ -1,55 +1,63 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import { Html5Qrcode, Html5QrcodeScanner } from 'html5-qrcode';
 
 export const ConsultarStock = () => {
     const navigate = useNavigate();
     const [scanResult, setScanResult] = useState(null);
+    const [scanner, setScanner] = useState(null);
+    const scannerRef = useRef(null);
 
     const handleAtras = () => {
         navigate('/');
     };
 
+    const handleStartScan = () => {
+        if (!scannerRef.current) {
+            const html5QrCodeScanner = new Html5QrcodeScanner('reader', {
+                fps: 10,
+                qrbox: { width: 250, height: 250 },
+                aspectRatio: 1.0,
+                disableFlip: false
+            });
+
+            const onScanSuccess = (decodedText, decodedResult) => {
+                setScanResult(decodedText);
+                console.log(`Scan result: ${decodedText}`, decodedResult);
+                html5QrCodeScanner.clear();
+                scannerRef.current = null; 
+            };
+
+            const onScanError = (error) => {
+                console.warn('Error al escanear el código QR:', error);
+            };
+
+            html5QrCodeScanner.render(onScanSuccess, onScanError);
+            scannerRef.current = html5QrCodeScanner;
+        }
+    };
+
+
     useEffect(() => {
-        //no se que apsa que no funciona bien, se duplica la camara y no enteindo por que
-        
-        const scanner = new Html5QrcodeScanner('reader', {
-            fps: 10, 
-            qrbox: { width: 250, height: 250 }, 
-            aspectRatio: 1.0, 
-            disableFlip: false 
-        });
-
-     
-        const onScanSuccess = (decodedText, decodedResult) => {
-            setScanResult(decodedText);
-            console.log(`Scan result: ${decodedText}`, decodedResult);
-            scanner.clear(); // Limpia el escáner
-        };
-
-        
-        const onScanError = (error) => {
-            console.warn('Error al escanear el código QR:', error);
-        };
-
-        
-        scanner.render(onScanSuccess, onScanError);
-
-    
+       
         return () => {
-            scanner.clear();
+            if (scannerRef.current) {
+                scannerRef.current.clear();
+                scannerRef.current = null;
+            }
         };
-    }, []); 
+    }, []);
 
     return (
         <div>
             <button onClick={handleAtras}>Atras</button>
             <h2>Escanea el código QR</h2>
-            <div id="reader" style={{ width: '250px', height: '250px' }}></div>
+            <button onClick={handleStartScan}>Iniciar Escaneo</button>
+            <div id="reader" style={{ width: '250px', height: '250px', marginTop: '20px' }}></div>
             {scanResult && (
                 <div>
                     <h2>Resultado del Escaneo:</h2>
-                    <p>{scanResult}</p> 
+                    <p>{scanResult}</p>
                 </div>
             )}
         </div>
