@@ -23,7 +23,7 @@ export const Home = () => {
     <div>
       <h1>Costa Nevada</h1>
 
-      <button onClick={ handleAgregarProducto }>Agregar producto</button>
+      <button onClick={ handleAgregarProducto }>Agregar nuevo producto</button>
 
       <button onClick={ handleActualizarStock }>Actualizar stock</button>
 

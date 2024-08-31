@@ -7,7 +7,7 @@ export const MisProductos = () => {
     const [heladoData, setHeladoData] = useState([]);
 
     const handleAtras = () => {
-        navigate('/');
+        navigate('/home');
     };
     
 

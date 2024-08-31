@@ -5,12 +5,17 @@ import { useNavigate } from 'react-router-dom';
 
 export const NuevoProducto = () => {
   const [nombreDelProducto, setNombreDelProducto] = useState('');
+  const [stockDelProducto, setStockDelProducto] = useState(0);
   const [qrCodeData, setQrCodeData] = useState('');
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
+  const handleInputChangeNombre = (event) => {
     setNombreDelProducto(event.target.value);
   };
+
+  const handleInputChangeStock=(event)=>{
+    setStockDelProducto(event.target.value);
+  }
 
   const handleGeneracionQR = () => {
     if (nombreDelProducto.trim() === '') {
@@ -49,7 +54,16 @@ export const NuevoProducto = () => {
             type="text"
             id="productName"
             value={nombreDelProducto}
-            onChange={handleInputChange}
+            onChange={handleInputChangeNombre}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="productStock">Stock del producto</label>
+          <input
+            type="number"
+            id="productStock"
+            value={stockDelProducto}
+            onChange={handleInputChangeStock}
           />
         </div>
         {/*CUANDO APRETA ESTE BOTON DEBERIA TAMBIEN GUARDAR LA INFO EN LA BD*/}
