@@ -5,7 +5,7 @@ export const ActualizarStock = () => {
     const navigate = useNavigate();
 
     const handleAtras = ()=>{
-        navigate('/');
+        navigate('/home');
       }
 
   return (

@@ -35,7 +35,7 @@ export const NuevoProducto = () => {
   };
 
   const handleAtras = ()=>{
-    navigate('/');
+    navigate('/home');
   }
 
   return (

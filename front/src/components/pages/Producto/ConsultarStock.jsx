@@ -9,7 +9,7 @@ export const ConsultarStock = () => {
     const scannerRef = useRef(null);
 
     const handleAtras = () => {
-        navigate('/');
+        navigate('/home');
     };
 
     const handleStartScan = () => {

@@ -5,6 +5,8 @@ import { NuevoProducto } from '../components/pages/Producto/NuevoProducto'
 import { ConsultarStock } from '../components/pages/Producto/ConsultarStock'
 import { ActualizarStock } from '../components/pages/Producto/ActualizarStock'
 import { MisProductos } from '../components/pages/Producto/MisProductos'
+import { Login } from '../components/pages/Login/login'
+
 
 
 
@@ -13,7 +15,11 @@ import { MisProductos } from '../components/pages/Producto/MisProductos'
 const router= createBrowserRouter([
     {
         path:'/',
-        element: <Home/>
+        element: <Login/>
+    },
+    {
+      path: '/home',
+      element: <Home/>
     },
     {
       path:'/agregar-nuevo-producto',
