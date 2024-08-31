@@ -14,14 +14,25 @@ export const Home = () => {
     navigate('/consultar-stock')
   }
 
+  const handleActualizarStock=()=>{
+    navigate('/actualizar-stock')
+  }
+
+  const handleVerProductos=()=>{
+   navigate('/mis-productos')
+  }
 
   return (
     <div>
-      <button onClick={ handleAgregarProducto }> Agregar producto</button>
+      <h1>Costa Nevada</h1>
 
-      <button onClick={ handleConsultarStock }> Consultar stock </button>
+      <button onClick={ handleAgregarProducto }>Agregar producto</button>
 
-        <button>Actualizar stock</button>
+      <button onClick={ handleConsultarStock }>Consultar stock</button>
+
+      <button onClick={ handleActualizarStock }>Actualizar stock</button>
+
+      <button onClick={ handleVerProductos }>Mis productos</button>
 
     </div>
   );

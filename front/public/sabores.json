@@ -1,0 +1,35 @@
+[
+    {
+      "flavor": "Chocolate Chip",
+      "stock": 25
+    },
+    {
+      "flavor": "Vanilla Bean",
+      "stock": 30
+    },
+    {
+      "flavor": "Strawberry",
+      "stock": 15
+    },
+    {
+      "flavor": "Mint Chocolate Chip",
+      "stock": 20
+    },
+    {
+      "flavor": "Cookies and Cream",
+      "stock": 10
+    },
+    {
+      "flavor": "Salted Caramel",
+      "stock": 22
+    },
+    {
+      "flavor": "Pistachio",
+      "stock": 18
+    },
+    {
+      "flavor": "Mango Sorbet",
+      "stock": 28
+    }
+  ]
+
