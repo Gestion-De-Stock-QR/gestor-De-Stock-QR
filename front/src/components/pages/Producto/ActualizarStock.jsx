@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../styles/actualizarStock.css';
 import handleStartScan from '../../../Hooks/Scan';
+import StockControl from './StockControl';
 
 
 export const ActualizarStock = () => {
@@ -9,6 +10,8 @@ export const ActualizarStock = () => {
     const [scanResult, setScanResult] = useState(null);
     const [sabores, setSabores] = useState([]);
     const [saborSeleccionado, setSaborSeleccionado] = useState(null);
+    const [accion, setAccion] = useState(''); 
+    const [cantidad, setCantidad] = useState(''); 
     const scannerRef = useRef(null);
 
     const handleAtras = () => {
@@ -31,34 +34,54 @@ export const ActualizarStock = () => {
         };
     }, []);
 
-    const iniciarEscaneo = (estado) => {
-        handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef,estado);
+    const handleIniciarEscaneo = () => {
+        handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef);
     };
 
-    const handleIngresoProducto =()=>{
-        iniciarEscaneo(true);
-        console.log('ingresa producto')
-    }
+    const handleActualizarStock = () => {
+        const cantidadNumero = parseInt(cantidad, 10);
 
-    const handleEgresoProducto=()=>{
-        iniciarEscaneo(false);
-        console.log('egresa producto')
-    }
+        if (!accion || isNaN(cantidadNumero) || cantidadNumero <= 0) {
+            alert("Por favor, selecciona una acción y una cantidad válida.");
+            return;
+        }
 
+        let nuevoStock = accion === 'ingresar' 
+            ? saborSeleccionado.stock + cantidadNumero 
+            : saborSeleccionado.stock - cantidadNumero;
+
+        // QUE EL STOCK NO SEA NEGATIVO, TENGO QUE SACARLO EN LA UNION DEL BACK
+        nuevoStock = Math.max(nuevoStock, 0);
+
+        // Aquí deberías llamar a la función para actualizar el stock en la base de datos
+        // actualizarStockEnBaseDeDatos(saborSeleccionado.id, nuevoStock);
+
+        alert(`El nuevo stock para ${saborSeleccionado.flavor} es ${nuevoStock}.`);
+        setSaborSeleccionado(prev => ({ ...prev, stock: nuevoStock }));
+        setAccion('');
+        setCantidad('');
+    };
 
     return (
         <div className='container-actualizarStock'>
             <button onClick={handleAtras}>Atras</button>
-            <h2>Seleccione su opción</h2>
-            <button onClick={handleIngresoProducto} >Ingreso de producto</button>
-            <button onClick={handleEgresoProducto} >Egreso de producto</button>
+            <h2>Actualizar stock</h2>
+            <button onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
 
             {saborSeleccionado && (
                 <div>
                     <h2>Resultado del Escaneo:</h2>
-                    <h1>Sabor: {saborSeleccionado.flavor}</h1>
+                    <h1>Nombre: {saborSeleccionado.flavor}</h1>
                     <h1>Stock: {saborSeleccionado.stock}</h1>
-                    {/*El STOCK SE DEBERIA PODER EDITAR EN ESTA PARTE */}
+
+                    
+                    <StockControl 
+                        accion={accion} 
+                        setAccion={setAccion} 
+                        cantidad={cantidad} 
+                        setCantidad={setCantidad} 
+                        handleActualizarStock={handleActualizarStock} 
+                    />
                 </div>
             )}
 

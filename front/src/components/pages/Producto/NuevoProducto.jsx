@@ -13,6 +13,7 @@ export const NuevoProducto = () => {
     setNombreDelProducto(event.target.value);
   };
 
+  //nombre, stock, umbral
   const handleInputChangeStock=(event)=>{
     setStockDelProducto(event.target.value);
   }
