@@ -1,35 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../../styles/misProductos.css';
+import { getProducto } from '../../../servicios/productoService';
 
 export const MisProductos = () => {
     const navigate = useNavigate();
-    const [heladoData, setHeladoData] = useState([]);
+    const [productosData, setProductosData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     const handleAtras = () => {
         navigate('/');
     };
-    
+
     useEffect(() => {
-        fetch('./sabores.json')
-            .then(response => response.json())
-            .then(data => setHeladoData(data))
-            .catch(error => console.error('Error al cargar los datos:', error));
+        const fetchProductos = async () => {
+            try {
+                const data = await getProducto();
+                setProductosData(data);
+            } catch (error) {
+                console.error('Error al cargar los datos:', error);
+                setError('No se pudieron cargar los productos.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProductos();
     }, []);
 
-    //deberia recibir los productos desde la base de datos, pero esto es una simulacion
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
     return (
         <div className='container-misProductos'>
-            <button onClick={handleAtras}>Atras</button>
+            <button onClick={handleAtras}>Atrás</button>
             <h2>Mis productos</h2>
             <ul>
-                {heladoData.map((item, index) => (
-                    <li key={index}>
-                        <strong>Sabor:</strong> {item.flavor} <br />
-                        <strong>Stock:</strong> {item.stock} unidades
-                    </li>
-                ))}
+                {productosData.length > 0 ? (
+                    productosData.map((producto) => (
+                        <li key={producto.id}>
+                            <strong>Nombre:</strong> {producto.nombre} <br />
+                            <strong>Stock:</strong> {producto.stock} unidades
+                        </li>
+                    ))
+                ) : (
+                    <li>No hay productos disponibles.</li>
+                )}
             </ul>
         </div>
     );

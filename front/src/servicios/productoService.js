@@ -53,7 +53,7 @@ export const egresoDeStock = async (id,stockRetirado) => {
 };
 
 // id 
-const getProducto = async (id) => {
+export const getProducto = async (id) => {
  
     try {
         const response = await axios.get(`${API_URL}/obtener/${id}`);
