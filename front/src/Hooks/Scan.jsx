@@ -1,8 +1,11 @@
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
-const handleStartScan = (setScanResult, setSaborSeleccionado, sabores, scannerRef) => {
+const handleStartScan = (setScanResult, setSaborSeleccionado, sabores, scannerRef, estado) => {
     setScanResult(null);
     setSaborSeleccionado(null);
+
+    if(estado)console.log('ingresa');
+    if(!estado)console.log('saca')
 
     if (!scannerRef.current) {
         const html5QrCodeScanner = new Html5QrcodeScanner('reader', {

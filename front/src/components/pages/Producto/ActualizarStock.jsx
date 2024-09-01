@@ -31,15 +31,27 @@ export const ActualizarStock = () => {
         };
     }, []);
 
-    const iniciarEscaneo = () => {
-        handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef);
+    const iniciarEscaneo = (estado) => {
+        handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef,estado);
     };
+
+    const handleIngresoProducto =()=>{
+        iniciarEscaneo(true);
+        console.log('ingresa producto')
+    }
+
+    const handleEgresoProducto=()=>{
+        iniciarEscaneo(false);
+        console.log('egresa producto')
+    }
+
 
     return (
         <div className='container-actualizarStock'>
             <button onClick={handleAtras}>Atras</button>
-            <h2>Escanea el código QR</h2>
-            <button onClick={iniciarEscaneo}>Iniciar Escaneo</button>
+            <h2>Seleccione su opción</h2>
+            <button onClick={handleIngresoProducto} >Ingreso de producto</button>
+            <button onClick={handleEgresoProducto} >Egreso de producto</button>
 
             {saborSeleccionado && (
                 <div>
