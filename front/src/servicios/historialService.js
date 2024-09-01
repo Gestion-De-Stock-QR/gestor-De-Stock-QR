@@ -14,3 +14,4 @@ const obtenerAll = async () => {
     }
 
 };
+export default { obtenerAll };
