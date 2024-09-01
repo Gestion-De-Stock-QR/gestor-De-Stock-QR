@@ -57,6 +57,7 @@ export const ActualizarStock = () => {
         // actualizarStockEnBaseDeDatos(saborSeleccionado.id, nuevoStock);
 
         alert(`El nuevo stock para ${saborSeleccionado.flavor} es ${nuevoStock}.`);
+        //ESTE ALERT PODRIA SER PARA EL UMBRAL
         setSaborSeleccionado(prev => ({ ...prev, stock: nuevoStock }));
         setAccion('');
         setCantidad('');
