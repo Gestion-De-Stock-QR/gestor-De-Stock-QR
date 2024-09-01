@@ -1,5 +1,5 @@
 
 export enum TipoHistorial {
-    ALTA = 'alta',
-    BAJA = 'baja',
+    INGRESO = 'ingreso',
+    EGRESO = 'egreso',
 }

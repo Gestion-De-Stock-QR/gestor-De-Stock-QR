@@ -46,7 +46,13 @@ export class ProductoService {
     DesminuirStock(stockIngresado: number, productoActual: Producto) {
         productoActual.stock = productoActual.stock - stockIngresado;
     }
+    async obtenerProducto(id: number): Promise<Producto> {
+        return await this.productoRepo.findByPk(id);
+    }
 
+    async obtenerProductos(): Promise<Producto[]> {
+        return await this.productoRepo.findAll();
+    }
     async obtenerNombreDeProducto(id: number): Promise<string> {
         return (await this.productoRepo.findByPk(id))?.nombre;
     }

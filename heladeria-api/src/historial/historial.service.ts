@@ -6,21 +6,32 @@ import { Producto } from 'src/producto/producto.model';
 
 
 @Injectable()
-export class HistorialService{
+export class HistorialService {
 
     constructor(
-        @InjectModel(Historial) private readonly historialRepositorio : typeof Historial
-    ){}
+        @InjectModel(Historial) private readonly historialRepositorio: typeof Historial
+    ) { }
 
-    async crear(stockIngresado: number, tipo: TipoHistorial, fecha: Date, productoId: number){
+    async crear(stockIngresado: number, tipo: TipoHistorial, fecha: Date, productoId: number) {
         const historial = await this.historialRepositorio.create({
             stockIngresado,
             tipo,
             fecha,
             productoId,
         })
-       return historial;
+        return historial;
     }
 
- 
+    async obtenerTrazabilidad(): Promise<Historial[]> {
+        return await  this.historialRepositorio.findAll({
+                include: [{
+
+                    model: Producto,
+                    attributes: ['nombre']
+                }
+                ]
+            });
+    }
+
+
 }
