@@ -4,20 +4,26 @@ import { HistorialModulo } from './historial/historial.modulo';
 import { Producto } from './producto/producto.model';
 import { Historial } from './historial/historial.model';
 import { SequelizeModule } from '@nestjs/sequelize';
-@Module({
+import { ConfigModule } from '@nestjs/config';
 
+@Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'localhost', // Asegúrate de que el host sea el correcto
-      port: 5433, // Puerto expuesto en docker-compose.yml
-      username: 'postgres',
-      password: 'postgres',
-      database: 'heladeria',
-      models: [Producto, Historial],
-      autoLoadModels: true, // Carga automática de modelos
-      synchronize: true,  // Sincroniza modelos con la base de datos (Úsalo con precaución)
+      host: process.env.DB_HOST, // Host de la base de datos desde el .env
+      port: parseInt(process.env.DB_PORT, 10), // Puerto de la base de datos desde el .env
+      username: process.env.DB_USERNAME, // Usuario de la base de datos desde el .env
+      password: process.env.DB_PASSWORD, // Contraseña de la base de datos desde el .env
+      database: process.env.DB_NAME, // Nombre de la base de datos desde el .env
+      models: [Producto, Historial], // Modelos a cargar
+      autoLoadModels: true, // Carga automática de los modelos
+      synchronize: true, // Úsalo con precaución en producción
     }),
-    ProductoModule, HistorialModulo],
+    ProductoModule,
+    HistorialModulo,
+  ],
 })
-export class AppModule { }
+export class AppModule {}
