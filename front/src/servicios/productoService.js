@@ -1,5 +1,5 @@
 import axios from 'axios';
-const host  = 'http://localhost:3000/';
+const host  = 'http://localhost:3000';
 
 const API_URL = `${host}/producto`;
 
@@ -12,7 +12,7 @@ const API_URL = `${host}/producto`;
 //  }
 
 export const crearProducto = async (producto) => {
-
+    console.log('entraCrearProducto')
     
     const respuesta = await axios.post(`${API_URL}/crear`,producto )
     console.log("tu respuesta al crear "+respuesta)
