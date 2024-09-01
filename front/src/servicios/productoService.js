@@ -4,6 +4,13 @@ const host  = 'http://localhost:3000/';
 const API_URL = `${host}/producto`;
 
 
+//Recibe
+//{
+//"nombre": "frutilla",
+//    "stock": 20,
+//    "umbral": 10
+//  }
+
 const crear = async (producto) => {
 
     
@@ -12,7 +19,11 @@ const crear = async (producto) => {
 }
 
 
-
+// 
+// {
+//     "stockIngresado": 10000
+//  }
+// + id 
 const ingresarStock = async (id,stockIngresado) => {
  
     try {
@@ -24,6 +35,11 @@ const ingresarStock = async (id,stockIngresado) => {
     }
 
 };
+
+// {
+//     "stockRetirado" : 100
+// }
+// +id
 const egresoDeStock = async (id,stockRetirado) => {
  
     try {
