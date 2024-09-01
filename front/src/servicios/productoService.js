@@ -11,7 +11,7 @@ const API_URL = `${host}/producto`;
 //    "umbral": 10
 //  }
 
-const crear = async (producto) => {
+export const crearProducto = async (producto) => {
 
     
     const respuesta = await axios.post(`${API_URL}/crear`,producto )
@@ -77,4 +77,4 @@ const obtenerAll = async () => {
 
 };
 
-export default { ingresarStock, egresoDeStock, crear, getProducto, obtenerAll };
+export default { ingresarStock, egresoDeStock, crearProducto, getProducto, obtenerAll };
