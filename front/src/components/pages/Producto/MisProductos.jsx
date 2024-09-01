@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProducto } from '../../../servicios/productoService';
+import { obtenerAll } from '../../../servicios/productoService';
 
 export const MisProductos = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export const MisProductos = () => {
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const data = await getProducto();
+                const data = await obtenerAll();
                 setProductosData(data);
             } catch (error) {
                 console.error('Error al cargar los datos:', error);

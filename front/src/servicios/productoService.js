@@ -65,7 +65,7 @@ export const getProducto = async (id) => {
 
 };
 
-const obtenerAll = async () => {
+export const obtenerAll = async () => {
  
     try {
         const response = await axios.get(`${API_URL}/obtenerAll/`);
