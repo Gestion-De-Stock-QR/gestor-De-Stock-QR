@@ -12,7 +12,7 @@ export const ActualizarStock = () => {
     const scannerRef = useRef(null);
 
     const handleAtras = () => {
-        navigate('/home');
+        navigate('/');
     };
 
     useEffect(() => {

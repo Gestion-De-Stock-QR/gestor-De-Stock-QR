@@ -40,7 +40,7 @@ export const NuevoProducto = () => {
   };
 
   const handleAtras = ()=>{
-    navigate('/home');
+    navigate('/');
   }
 
   return (

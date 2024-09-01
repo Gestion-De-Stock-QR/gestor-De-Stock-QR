@@ -10,7 +10,7 @@ import { MisProductos } from '../components/pages/Producto/MisProductos'
 const router= createBrowserRouter([
 
     {
-      path: '/home',
+      path: '/',
       element: <Home/>
     },
     {
