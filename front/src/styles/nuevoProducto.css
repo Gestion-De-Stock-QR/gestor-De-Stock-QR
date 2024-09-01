@@ -1,0 +1,52 @@
+.container-nuevoProducto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    min-height: 100vh;
+}
+
+.subtitulo-nuevoProducto{
+    font-size: 1.4em;
+}
+label{
+    font-weight: bold;
+}
+
+input{
+    padding: 0.5em;
+}
+.form-group{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.boton-generar-qr{
+    margin-top: 1em;
+}
+
+.boton-qr-imprimir{
+    margin: auto;
+}
+.container-boton-imprimir-qr{
+    display: flex;
+}
+@media (max-width: 600px) {
+    .container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    input[type="text"], button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    button {
+      padding: 10px;
+    }
+  }

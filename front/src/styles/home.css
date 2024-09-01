@@ -1,0 +1,30 @@
+.container-home{    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+button{
+    min-width: 20em;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: #fd9c00;
+    outline: none;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover{
+    background: radial-gradient(#fd9c00,#fd9c00,#5f3e09);
+    color: white;
+    transition: 0.3s;
+}
+
+/*viene con un maargin predefinido*/
+h1{
+    color: wheat;
+    margin: 0;
+}

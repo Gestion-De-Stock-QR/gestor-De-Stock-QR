@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import '../../../styles/actualizarStock.css';   
+
 
 export const ActualizarStock = () => {
     const navigate = useNavigate();
@@ -37,7 +39,6 @@ export const ActualizarStock = () => {
                 setScanResult(decodedText);
                 console.log(`Scan result: ${decodedText}`, decodedResult);
 
-              
                 const scannedID = parseInt(decodedText, 10);
                 
                 const flavorData = sabores.find(flavor => flavor.id === scannedID);
@@ -74,7 +75,7 @@ export const ActualizarStock = () => {
     }, []);
 
     return (
-        <div>
+        <div className='container-actualizarStock'>
             <button onClick={handleAtras}>Atras</button>
             <h2>Escanea el código QR</h2>
             <button onClick={handleStartScan}>Iniciar Escaneo</button>
@@ -89,7 +90,7 @@ export const ActualizarStock = () => {
                 </div>
             )}
 
-            <div id="reader" style={{ width: '250px', height: '250px', marginTop: '20px' }}></div>
+            <div id="reader" style={{ width: '290px', height: '250px', marginTop: '20px' }}></div>
         </div>
     );
 };

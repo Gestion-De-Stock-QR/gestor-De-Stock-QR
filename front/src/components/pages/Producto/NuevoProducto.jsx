@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
-import '../../../styles/producto.css';
+import '../../../styles/nuevoProducto.css';
 import { useNavigate } from 'react-router-dom';
 
 export const NuevoProducto = () => {
@@ -44,19 +44,19 @@ export const NuevoProducto = () => {
   }
 
   return (
-    <div className="container">
-        <button onClick={ handleAtras }>atras</button>
-      <h2>Generar QR para Producto</h2>
+    <div className="container-nuevoProducto">
+        <button onClick={ handleAtras }>Atras</button>
       <form>
         <div className="form-group">
           <label htmlFor="productName">Nombre del Producto:</label>
           <input
+            placeholder='ej:Chocolate'
             type="text"
             id="productName"
             value={nombreDelProducto}
             onChange={handleInputChangeNombre}
           />
-        </div>
+        </div>  
         <div className="form-group">
           <label htmlFor="productStock">Stock del producto</label>
           <input
@@ -67,23 +67,23 @@ export const NuevoProducto = () => {
           />
         </div>
         {/*CUANDO APRETA ESTE BOTON DEBERIA TAMBIEN GUARDAR LA INFO EN LA BD*/}
-        <button type="button" onClick={handleGeneracionQR}>
+        <button className='boton-generar-qr' type="button" onClick={handleGeneracionQR}>
           Generar QR
         </button>
       </form>
 
       {qrCodeData && (
         <div className="qr-container">
-          <QRCodeCanvas
+          <QRCodeCanvas className='QR'
             id="qrCodeCanvas"
             value={qrCodeData}
             size={300}
             level={"H"}
             includeMargin={true}
           />
-          <div>
-            <button onClick={handleDescargaQR}>Descargar QR para imprimir</button>
-          </div>
+          <div className="container-boton-imprimir-qr" >
+            <button className='boton-qr-imprimir' onClick={handleDescargaQR}>Descargar QR para imprimir</button>
+          </div>  
         </div>
       )}
     </div>

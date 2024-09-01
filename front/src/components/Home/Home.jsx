@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import '../../styles/home.css';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -20,14 +19,11 @@ export const Home = () => {
   }
 
   return (
-    <div>
+    <div className="container-home">
       <h1>Costa Nevada</h1>
-
-      <button onClick={ handleAgregarProducto }>Agregar nuevo producto</button>
-
-      <button onClick={ handleActualizarStock }>Actualizar stock</button>
-
-      <button onClick={ handleVerProductos }>Mis productos</button>
+      <button className="boton-inicio" onClick={ handleAgregarProducto }>Agregar nuevo producto</button>
+      <button className="boton-inicio" onClick={ handleActualizarStock }>Actualizar stock</button>
+      <button className="boton-inicio" onClick={ handleVerProductos }>Mis productos</button>
 
     </div>
   );

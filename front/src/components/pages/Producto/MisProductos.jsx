@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../../../styles/misProductos.css';
 
 export const MisProductos = () => {
     const navigate = useNavigate();
@@ -10,7 +10,6 @@ export const MisProductos = () => {
         navigate('/home');
     };
     
-
     useEffect(() => {
         fetch('./sabores.json')
             .then(response => response.json())
@@ -21,7 +20,7 @@ export const MisProductos = () => {
     //deberia recibir los productos desde la base de datos, pero esto es una simulacion
 
     return (
-        <div>
+        <div className='container-misProductos'>
             <button onClick={handleAtras}>Atras</button>
             <h2>Mis productos</h2>
             <ul>
