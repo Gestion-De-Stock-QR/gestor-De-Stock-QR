@@ -1,15 +1,27 @@
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, #087E8B,#1ab3c4 );
+  background: linear-gradient(to bottom, #087E8B, #1ab3c4); /* Fondo degradado */
+  color: #2d3436; /* Color de texto base */
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-h1{
+h1 {
   margin: 0;
+  font-size: 2.5em; /* Aumenta el tamaño del h1 para destacarlo */
+  color: #e17055; /* Color del texto del h1 */
+}
+
+a {
+  color: #e17055; /* Color para enlaces */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #636e72; /* Cambia de color al pasar el ratón */
 }
 
 @keyframes logo-spin {
@@ -24,5 +36,16 @@ h1{
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Media Queries para hacer la página más responsiva */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Reduce el tamaño de fuente en pantallas pequeñas */
+  }
+
+  h1 {
+    font-size: 2em; /* Ajusta el tamaño del h1 en pantallas pequeñas */
   }
 }

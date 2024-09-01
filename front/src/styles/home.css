@@ -1,30 +1,48 @@
-.container-home{    
+.container-home {    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2em;
+    background-color: #2d3436; /* Fondo oscuro */
+    padding: 1em;
 }
 
-button{
-    min-width: 20em;
+button {
+    width: 20em; /* Ancho fijo para todos los botones */
     padding: 1em;
     border-radius: 1em;
-    background-color: #fd9c00;
+    background-color: #e17055; /* Color de botón */
+    color: #2d3436; /* Texto oscuro para contraste */
     outline: none;
     border: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
-button:hover{
-    background: radial-gradient(#fd9c00,#fd9c00,#5f3e09);
+button:hover {
+    background: radial-gradient(circle, #e17055, #636e72, #2d3436); /* Gradiente de colores */
     color: white;
     transition: 0.3s;
 }
 
-/*viene con un maargin predefinido*/
-h1{
-    color: wheat;
+h1 {
+    color: #e17055; /* Título en color de botón */
     margin: 0;
+    font-size: 3rem; /* Tamaño de fuente más grande */
+    text-align: center;
+}
+
+/* Media queries para hacerlo responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Tamaño de fuente más pequeño en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
 }

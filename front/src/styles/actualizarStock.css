@@ -1,16 +1,39 @@
-.container-actualizarStock{
+.container-actualizarStock {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     gap: 2em;
+    padding: 2em; /* Añadido para mayor espacio en dispositivos pequeños */
+    background-color: #2d3436; /* Color de fondo */
 }
 
-h2{
+h1, h2 {
     margin: 0;
+    color: #e17055; /* Color del texto de los encabezados */
 }
 
-h1{
-    margin: 0;
+h1 {
+    font-size: 2.5em; /* Tamaño más grande para h1 */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2em; /* Tamaño grande para h2, pero menor que h1 */
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .container-actualizarStock {
+        padding: 1em; /* Reduce el padding en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 2em; /* Ajusta el tamaño de fuente para h1 en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Ajusta el tamaño de fuente para h2 en pantallas pequeñas */
+    }
 }

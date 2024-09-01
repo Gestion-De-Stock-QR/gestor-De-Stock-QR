@@ -1,52 +1,104 @@
-.container-nuevoProducto{
+.container-nuevoProducto {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
     min-height: 100vh;
+    background-color: #2d3436; /* Fondo oscuro */
+    padding: 1em;
 }
 
-.subtitulo-nuevoProducto{
-    font-size: 1.4em;
+.subtitulo-nuevoProducto {
+    font-size: 2rem; /* Tamaño de fuente grande para subtítulos */
+    color: #e17055; /* Color para el subtítulo */
+    text-align: center;
 }
-label{
+
+label {
     font-weight: bold;
+    color: #e17055; /* Color de texto de etiqueta */
 }
 
-input{
+input {
     padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid #636e72; /* Borde gris oscuro */
+    background-color: #fff; /* Fondo blanco */
+    color: #2d3436; /* Texto oscuro */
 }
-.form-group{
-    margin: auto;
+
+.form-group {
     display: flex;
     flex-direction: column;
     gap: 1em;
     margin-top: 1em;
+    width: 100%; /* Asegura que el grupo del formulario se extienda al ancho disponible */
+    max-width: 400px; /* Limita el ancho máximo */
 }
 
-.boton-generar-qr{
+.boton-generar-qr {
     margin-top: 1em;
+    padding: 1em;
+    width: 100%;
+    max-width: 400px;
+    background-color: #e17055; /* Color de botón */
+    color: #2d3436; /* Texto oscuro para contraste */
+    border: none;
+    border-radius: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.boton-qr-imprimir{
+.boton-generar-qr:hover {
+    background: radial-gradient(circle, #e17055, #636e72, #2d3436); /* Gradiente de colores */
+    color: white;
+}
+
+.boton-qr-imprimir {
     margin: auto;
+    padding: 1em;
+    background-color: #636e72; /* Color de botón de impresión */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
-.container-boton-imprimir-qr{
+
+.boton-qr-imprimir:hover {
+    background-color: #2d3436; /* Cambio de color en hover */
+}
+
+.container-boton-imprimir-qr {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que el contenedor se extienda al ancho disponible */
+    max-width: 400px; /* Limita el ancho máximo */
 }
-@media (max-width: 600px) {
-    .container {
-      width: 90%;
-      padding: 15px;
+
+/* Media queries para diseño responsivo */
+@media (max-width: 768px) {
+    .subtitulo-nuevoProducto {
+        font-size: 1.8rem; /* Reducir el tamaño de fuente en pantallas medianas */
     }
-  
-    input[type="text"], button {
-      font-size: 14px;
-      padding: 8px;
+    .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
+        max-width: 300px; /* Reducir el ancho máximo en pantallas medianas */
     }
-  
-    button {
-      padding: 10px;
+}
+
+@media (max-width: 480px) {
+    .subtitulo-nuevoProducto {
+        font-size: 1.6rem; /* Reducir más el tamaño de fuente en pantallas pequeñas */
     }
-  }
+    .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
+        max-width: 250px; /* Reducir aún más el ancho máximo en pantallas pequeñas */
+    }
+    input, .boton-generar-qr, .boton-qr-imprimir {
+        font-size: 14px; /* Reducir tamaño de fuente y padding en dispositivos pequeños */
+        padding: 0.8em;
+    }
+}
