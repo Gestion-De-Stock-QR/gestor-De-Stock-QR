@@ -52,6 +52,7 @@ const egresoDeStock = async (id,stockRetirado) => {
 
 };
 
+// id 
 const getProducto = async (id) => {
  
     try {
@@ -63,6 +64,7 @@ const getProducto = async (id) => {
     }
 
 };
+
 const obtenerAll = async () => {
  
     try {
