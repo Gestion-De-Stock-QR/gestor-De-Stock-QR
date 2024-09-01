@@ -8,12 +8,9 @@ import { MisProductos } from '../components/pages/Producto/MisProductos'
 
 
 const router= createBrowserRouter([
-    // {
-    //     path:'/',
-    //     element: <Login/>
-    // },
+
     {
-      path: '/',
+      path: '/home',
       element: <Home/>
     },
     {
