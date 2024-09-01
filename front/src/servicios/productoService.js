@@ -16,6 +16,8 @@ export const crearProducto = async (producto) => {
     
     const respuesta = await axios.post(`${API_URL}/crear`,producto )
     console.log("tu respuesta al crear "+respuesta)
+
+    
 }
 
 

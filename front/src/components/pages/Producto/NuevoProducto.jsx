@@ -50,11 +50,10 @@ export const NuevoProducto = () => {
       umbral: umbralDelProducto,
     };
 
+
     handleCrearProducto(producto);
  
   };
-
-  
 
   const handleDescargaQR = () => {
     const canvas = document.getElementById("qrCodeCanvas");
@@ -75,64 +74,67 @@ export const NuevoProducto = () => {
 
   return (
     <div className="container-nuevoProducto">
-      <button onClick={handleAtras}>Atrás</button>
-      <form>
-        <div className="form-group">
-          <label htmlFor="productName">Nombre del Producto:</label>
-          <input
-            placeholder="ej: Chocolate"
-            type="text"
-            id="productName"
-            value={nombreDelProducto}
-            onChange={handleInputChangeNombre}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="productStock">Stock del Producto:</label>
-          <input
-            type="number"
-            id="productStock"
-            value={stockDelProducto}
-            onChange={handleInputChangeStock}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="productUmbral">Umbral:</label>
-          <input
-            type="number"
-            id="productUmbral"
-            value={umbralDelProducto}
-            onChange={handleInputChangeUmbral}
-          />
-        </div>
-        <button
-          className="boton-generar-qr"
-          type="button"
-          onClick={handleGeneracionQR}
-        >
-          Generar QR
-        </button>
-      </form>
-
-      {qrCodeData && (
-        <div className="qr-container">
-          <QRCodeCanvas
-            className="QR"
-            id="qrCodeCanvas"
-            value={qrCodeData}
-            size={300}
-            level={"H"}
-            includeMargin={true}
-          />
-          <div className="container-boton-imprimir-qr">
-            <button className="boton-qr-imprimir" onClick={handleDescargaQR}>
-              Descargar QR para imprimir
-            </button>
+      <div className="registro-producto">
+        <button onClick={handleAtras}>Atrás</button>
+        <form>
+          <div className="form-group">
+            <label htmlFor="productName">Nombre del Producto:</label>
+            <input
+              placeholder="ej: Chocolate"
+              type="text"
+              id="productName"
+              value={nombreDelProducto}
+              onChange={handleInputChangeNombre}
+            />
           </div>
-        </div>
-      )}
-    </div>
-  );
-};
+          <div className="form-group">
+            <label htmlFor="productStock">Stock del Producto:</label>
+            <input
+              type="number"
+              id="productStock"
+              value={stockDelProducto}
+              onChange={handleInputChangeStock}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="productUmbral">Umbral:</label>
+            <input
+              type="number"
+              id="productUmbral"
+              value={umbralDelProducto}
+              onChange={handleInputChangeUmbral}
+            />
+          </div>
+          <button
+            className="boton-generar-qr"
+            type="button"
+            onClick={handleGeneracionQR}
+          >
+            Generar QR
+          </button>
+        </form>
+
+        {qrCodeData && (
+          <div className="qr-container">
+            <QRCodeCanvas
+              className="QR"
+              id="qrCodeCanvas"
+              value={qrCodeData}
+              size={300}
+              level={"H"}
+              includeMargin={true}
+            />
+            <div className="container-boton-imprimir-qr">
+              <button className="boton-qr-imprimir" onClick={handleDescargaQR}>
+                Descargar QR para imprimir
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+      </div>
+      
+)};
 
 export default NuevoProducto;

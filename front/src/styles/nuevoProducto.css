@@ -4,28 +4,42 @@
     justify-content: center;
     align-items: center;
     gap: 1em;
+    max-width: 500px;
     min-height: 100vh;
-    background-color: #2d3436; /* Fondo oscuro */
+    margin: auto;
     padding: 1em;
 }
 
 .subtitulo-nuevoProducto {
     font-size: 2rem; /* Tamaño de fuente grande para subtítulos */
-    color: #e17055; /* Color para el subtítulo */
+    color: #07398E; /* Color para el subtítulo */
     text-align: center;
+}
+
+.registro-producto{
+    background-color:#dedede;
+    padding: 1em; 
+    border-radius: 0.7em;
 }
 
 label {
     font-weight: bold;
-    color: #e17055; /* Color de texto de etiqueta */
+    color: #103753; /* Color de texto de etiqueta */
 }
 
 input {
-    padding: 0.5em;
+    padding: 0.6em;
     border-radius: 0.5em;
     border: 1px solid #636e72; /* Borde gris oscuro */
     background-color: #fff; /* Fondo blanco */
     color: #2d3436; /* Texto oscuro */
+    border: none;
+    outline: none;
+}
+
+input:focus{
+    border-bottom: solid 2px #144c74;
+    transition: 0.1s;
 }
 
 .form-group {
@@ -39,21 +53,21 @@ input {
 
 .boton-generar-qr {
     margin-top: 1em;
-    padding: 1em;
+    
     width: 100%;
     max-width: 400px;
-    background-color: #e17055; /* Color de botón */
+    background-color: #bababa; /* Color de botón */
     color: #2d3436; /* Texto oscuro para contraste */
     border: none;
     border-radius: 1em;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .boton-generar-qr:hover {
-    background: radial-gradient(circle, #e17055, #636e72, #2d3436); /* Gradiente de colores */
     color: white;
+    border: solid white 1px;
+    transition: 0.2s;
 }
 
 .boton-qr-imprimir {

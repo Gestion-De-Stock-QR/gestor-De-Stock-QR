@@ -6,12 +6,11 @@
     min-height: 100vh;
     gap: 2em;
     padding: 2em; /* Añadido para mayor espacio en dispositivos pequeños */
-    background-color: #2d3436; /* Color de fondo */
+    background: radial-gradient(circle, #144c74,#103753,#144c74);
 }
 
 h1, h2 {
     margin: 0;
-    color: #e17055; /* Color del texto de los encabezados */
 }
 
 h1 {
