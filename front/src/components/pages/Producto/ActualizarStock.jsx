@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Html5QrcodeScanner } from 'html5-qrcode';
-import '../../../styles/actualizarStock.css';   
+import '../../../styles/actualizarStock.css';
+import handleStartScan from '../../../Hooks/Scan';
 
 
 export const ActualizarStock = () => {
@@ -16,54 +16,11 @@ export const ActualizarStock = () => {
     };
 
     useEffect(() => {
-        //esto esta hardcodeado, deberia consultar a la base de datos los id para traer su info
         fetch('./sabores.json')
             .then(response => response.json())
             .then(data => setSabores(data))
             .catch(error => console.error('Error al cargar sabores:', error));
     }, []);
-
-    const handleStartScan = () => {
-        setScanResult(null);
-        setSaborSeleccionado(null);
-
-        if (!scannerRef.current) {
-            const html5QrCodeScanner = new Html5QrcodeScanner('reader', {
-                fps: 10,
-                qrbox: { width: 250, height: 250 },
-                aspectRatio: 1.0,
-                disableFlip: false
-            });
-
-            const onScanSuccess = (decodedText, decodedResult) => {
-                setScanResult(decodedText);
-                console.log(`Scan result: ${decodedText}`, decodedResult);
-
-                const scannedID = parseInt(decodedText, 10);
-                
-                const flavorData = sabores.find(flavor => flavor.id === scannedID);
-
-                if (flavorData) {
-                    setSaborSeleccionado(flavorData);
-                } else {
-                    console.warn('ID no encontrado en los sabores');
-                }
-
-                html5QrCodeScanner.clear();
-                scannerRef.current = null;
-            };
-
-            const onScanError = (error) => {
-                console.warn('Error al escanear el código QR:', error);
-            };
-
-            html5QrCodeScanner.render(onScanSuccess, onScanError);
-            scannerRef.current = html5QrCodeScanner;
-        } else {
-            scannerRef.current.clear();
-            scannerRef.current.render(onScanSuccess, onScanError);
-        }
-    };
 
     useEffect(() => {
         return () => {
@@ -74,13 +31,16 @@ export const ActualizarStock = () => {
         };
     }, []);
 
+    const iniciarEscaneo = () => {
+        handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef);
+    };
+
     return (
         <div className='container-actualizarStock'>
             <button onClick={handleAtras}>Atras</button>
             <h2>Escanea el código QR</h2>
-            <button onClick={handleStartScan}>Iniciar Escaneo</button>
-            
-          
+            <button onClick={iniciarEscaneo}>Iniciar Escaneo</button>
+
             {saborSeleccionado && (
                 <div>
                     <h2>Resultado del Escaneo:</h2>
