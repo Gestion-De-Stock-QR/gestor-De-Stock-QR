@@ -18,13 +18,22 @@ export class ProductoController {
     async crearProducto(@Body() producto: Producto): Promise<Producto> {
         return await this.productoService.crear(producto);
     }
+    @Get("/obtener/:id")
+    async getProducto(@Param('id') id: number){
+        return this.productoService.obtenerProducto(id);
+    }
 
-    @Patch(":id/alta")
-    async darDeAlta(@Param('id') id: number, @Body('stockIngresado') stockIngresado: number): Promise<Producto> {
+    @Get("/obtenerAll")
+    async getAll(): Promise<Producto[]>{
+        return await this.productoService.obtenerProductos();
+    }
+
+    @Patch("/ingresoDeStock/:id")
+    async ingresoDeStock(@Param('id') id: number, @Body('stockIngresado') stockIngresado: number): Promise<Producto> {
 
         try {
 
-            this.guardarHistorial(stockIngresado,TipoHistorial.ALTA,id);
+            this.guardarHistorial(stockIngresado,TipoHistorial.INGRESO,id);
             return await this.productoService.darDeAlta(id, stockIngresado);
         }
         catch (error) {
@@ -32,18 +41,19 @@ export class ProductoController {
         }
     }
 
-    @Patch(":id/baja")
-    async darDeBaja(@Param('id') id: number, @Body('stockRetirado') stockRetirado: number): Promise<Producto> {
+    @Patch("/egresoDeStock/:id")
+    async egresoDeStock(@Param('id') id: number, @Body('stockRetirado') stockRetirado: number): Promise<Producto> {
 
         try {
 
-            this.guardarHistorial(stockRetirado,TipoHistorial.BAJA,id);
+            this.guardarHistorial(stockRetirado,TipoHistorial.EGRESO,id);
             return await this.productoService.darDeBaja(id, stockRetirado);
         }
         catch (error) {
             throw new NotFoundException(`No se pudo dar de baja producto: ${error.message}`);
         }
     }
+    
 
     async guardarHistorial(stock: number, tipo :TipoHistorial, productoID : number ): Promise<void> {
         const fecha = new Date();
