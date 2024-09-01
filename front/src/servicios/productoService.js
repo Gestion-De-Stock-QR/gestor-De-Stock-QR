@@ -24,7 +24,7 @@ export const crearProducto = async (producto) => {
 //     "stockIngresado": 10000
 //  }
 // + id 
-const ingresarStock = async (id,stockIngresado) => {
+export const ingresarStock = async (id,stockIngresado) => {
  
     try {
         const response = await axios.patch(`${API_URL}/ingresoDeStock/${id}`,stockIngresado);
@@ -40,7 +40,7 @@ const ingresarStock = async (id,stockIngresado) => {
 //     "stockRetirado" : 100
 // }
 // +id
-const egresoDeStock = async (id,stockRetirado) => {
+export const egresoDeStock = async (id,stockRetirado) => {
  
     try {
         const response = await axios.patch(`${API_URL}/egresoDeStock/${id}`,stockRetirado);
