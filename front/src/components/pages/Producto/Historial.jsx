@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { obtenerAll } from '../../../servicios/productoService';
+import { obtenerAll } from '../../../servicios/historialService';
 
 
 export const Historial = () => {
@@ -38,7 +38,7 @@ export const Historial = () => {
                 <h1>Historial</h1>
                 <ul>
                     {data.map((item, index) => (
-                        <li key={index}>{JSON.stringify(item)}</li> 
+                        <li key={index}>{JSON.stringify(item)}</li>
                     ))}
                 </ul>
             </div>

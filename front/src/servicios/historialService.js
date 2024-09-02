@@ -1,5 +1,5 @@
 import axios from 'axios';
-const host  = 'http://localhost:3000/';
+const host  = 'http://localhost:3000';
 
 const API_URL = `${host}/historial`;
 
@@ -14,4 +14,4 @@ const obtenerAll = async () => {
     }
 
 };
-export default { obtenerAll };
+export { obtenerAll };
