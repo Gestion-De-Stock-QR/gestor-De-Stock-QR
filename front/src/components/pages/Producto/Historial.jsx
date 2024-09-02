@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { obtenerAll } from '../../../servicios/historialService';
-
+import '../../../styles/historial.css';
+import * as XLSX from 'xlsx';  
 
 export const Historial = () => {
     const [data, setData] = useState([]);
@@ -11,6 +12,13 @@ export const Historial = () => {
 
     const handleAtras = () => {
         navigate('/');
+    };
+
+    const handleExportarExcel = () => {
+        const worksheet = XLSX.utils.json_to_sheet(data);
+        const workbook = XLSX.utils.book_new();           
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Historial'); 
+        XLSX.writeFile(workbook, 'Historial.xlsx');      
     };
 
     useEffect(() => {
@@ -34,13 +42,33 @@ export const Historial = () => {
     return (
         <div>
             <button onClick={handleAtras}>Atras</button>
+            <button onClick={handleExportarExcel}>Exportar a Excel</button>
             <div>
                 <h1>Historial</h1>
-                <ul>
-                    {data.map((item, index) => (
-                        <li key={index}>{JSON.stringify(item)}</li>
-                    ))}
-                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Stock Ingresado</th>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Producto ID</th>
+                            <th>Nombre del Producto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr key={index}>
+                                <td>{item.id}</td>
+                                <td>{item.stockIngresado}</td>
+                                <td>{new Date(item.fecha).toLocaleString()}</td>
+                                <td>{item.tipo}</td>
+                                <td>{item.productoId}</td>
+                                <td>{item.producto.nombre}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

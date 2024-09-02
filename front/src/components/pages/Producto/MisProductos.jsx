@@ -1,6 +1,8 @@
+// MisProductos.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { obtenerAll } from '../../../servicios/productoService';
+import ProductoCard from './ProductoCard'; 
 
 export const MisProductos = () => {
     const navigate = useNavigate();
@@ -38,20 +40,21 @@ export const MisProductos = () => {
 
     return (
         <div className='container-misProductos'>
-            <button onClick={handleAtras}>Atrás</button>
+            <button className="btn-back" onClick={handleAtras}>Atrás</button>
             <h2>Mis productos</h2>
-            <ul>
+            <div className='productos-grid'>
                 {productosData.length > 0 ? (
                     productosData.map((producto) => (
-                        <li key={producto.id}>
-                            <strong>Nombre:</strong> {producto.nombre} <br />
-                            <strong>Stock:</strong> {producto.stock} unidades
-                        </li>
+                        <ProductoCard 
+                            key={producto.id} 
+                            nombre={producto.nombre} 
+                            stock={producto.stock} 
+                        />
                     ))
                 ) : (
-                    <li>No hay productos disponibles.</li>
+                    <p>No hay productos disponibles.</p>
                 )}
-            </ul>
+            </div>
         </div>
     );
 };
