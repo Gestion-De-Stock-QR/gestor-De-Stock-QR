@@ -26,8 +26,7 @@ export const NuevoProducto = () => {
   const handleCrearProducto = async (producto) => {
     try {
       const response = await crearProducto(producto);
-
-      setQrCodeData(response.id);
+      setQrCodeData(response.id.toString());
     } catch (error) {
       console.error("Error registrando:", error);
     }

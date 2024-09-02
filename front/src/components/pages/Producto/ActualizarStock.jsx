@@ -9,7 +9,6 @@ import { IngresarStock } from "./Stock/IngresarStock";
 export const ActualizarStock = () => {
   const navigate = useNavigate();
   const [scanResult, setScanResult] = useState(null);
-  const [sabores, setSabores] = useState([]);
   const [saborSeleccionado, setSaborSeleccionado] = useState(null);
   const [accion, setAccion] = useState("");
   const [cantidad, setCantidad] = useState("");
@@ -18,13 +17,6 @@ export const ActualizarStock = () => {
   const handleAtras = () => {
     navigate("/");
   };
-
-  useEffect(() => {
-    fetch("./sabores.json")
-      .then((response) => response.json())
-      .then((data) => setSabores(data))
-      .catch((error) => console.error("Error al cargar sabores:", error));
-  }, []);
 
   useEffect(() => {
     return () => {
@@ -36,7 +28,7 @@ export const ActualizarStock = () => {
   }, []);
 
   const handleIniciarEscaneo = () => {
-    handleStartScan(setScanResult, setSaborSeleccionado, sabores, scannerRef);
+    handleStartScan(setScanResult, setSaborSeleccionado, scannerRef);
   };
 
   const handleActualizarStock = () => {
@@ -71,8 +63,9 @@ export const ActualizarStock = () => {
       {saborSeleccionado && (
         <div>
           <h2>Resultado del Escaneo:</h2>
-          <h1>Nombre: {saborSeleccionado.flavor}</h1>
+          <h1>Nombre: {saborSeleccionado.nombre}</h1>
           <h1>Stock: {saborSeleccionado.stock}</h1>
+          <h1>Umbral: {saborSeleccionado.umbral}</h1>
 
           <StockControl
             accion={accion}

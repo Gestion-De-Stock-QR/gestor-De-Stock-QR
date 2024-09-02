@@ -1,11 +1,8 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
+import { getProducto } from "../servicios/productoService";
 
-const handleStartScan = (
-  setScanResult,
-  setSaborSeleccionado,
-  sabores,
-  scannerRef
-) => {
+
+const handleStartScan = (setScanResult, setSaborSeleccionado, scannerRef) => {
   setScanResult(null);
   setSaborSeleccionado(null);
 
@@ -17,17 +14,21 @@ const handleStartScan = (
       disableFlip: false,
     });
 
-    const onScanSuccess = (decodedText, decodedResult) => {
+    const onScanSuccess = async (decodedText) => {
       setScanResult(decodedText);
-      console.log(`Scan result: ${decodedText}`, decodedResult);
+      console.log(`Scan result: ${decodedText}`);
 
       const scannedID = parseInt(decodedText, 10);
-      const flavorData = sabores.find((flavor) => flavor.id === scannedID);
 
-      if (flavorData) {
-        setSaborSeleccionado(flavorData);
-      } else {
-        console.warn("ID no encontrado en los sabores");
+      try {
+        const producto = await getProducto(scannedID);
+        if (producto) {
+          setSaborSeleccionado(producto);
+        } else {
+          console.warn("Producto no encontrado");
+        }
+      } catch (error) {
+        console.error("Error al obtener producto:", error);
       }
 
       html5QrCodeScanner.clear();

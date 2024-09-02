@@ -11,10 +11,12 @@ const API_URL = `${host}/producto`;
 //  }
 
 export const crearProducto = async (producto) => {
-  console.log("entraCrearProducto");
-
-  const respuesta = await axios.post(`${API_URL}/crear`, producto);
-  console.log("tu respuesta al crear " + respuesta);
+  try {
+    const respuesta = await axios.post(`${API_URL}/crear`, producto);
+    return respuesta.data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 //
@@ -55,11 +57,12 @@ export const egresoDeStock = async (id, stockRetirado) => {
 // id
 export const getProducto = async (id) => {
   try {
+    console.log(id)
     const response = await axios.get(`${API_URL}/obtener/${id}`);
+    console.log(response.data)
     return response.data;
   } catch (error) {
-    console.error("Error al conseguir datos de la tarea:", error);
-    throw error;
+    throw new HttpException('Error al opbtener el producto', HttpStatus.INTERNAL_SERVER_ERROR);
   }
 };
 
