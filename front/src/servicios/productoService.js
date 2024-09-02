@@ -1,8 +1,7 @@
-import axios from 'axios';
-const host  = 'http://localhost:3000';
+import axios from "axios";
+const host = "http://localhost:3000";
 
 const API_URL = `${host}/producto`;
-
 
 //Recibe
 //{
@@ -12,73 +11,74 @@ const API_URL = `${host}/producto`;
 //  }
 
 export const crearProducto = async (producto) => {
-    console.log('entraCrearProducto')
-    
-    const respuesta = await axios.post(`${API_URL}/crear`,producto )
-    console.log("tu respuesta al crear "+respuesta)
+  console.log("entraCrearProducto");
 
-    
-}
+  const respuesta = await axios.post(`${API_URL}/crear`, producto);
+  console.log("tu respuesta al crear " + respuesta);
+};
 
-
-// 
+//
 // {
 //     "stockIngresado": 10000
 //  }
-// + id 
-export const ingresarStock = async (id,stockIngresado) => {
- 
-    try {
-        const response = await axios.patch(`${API_URL}/ingresoDeStock/${id}`,stockIngresado);
-        return response.data;
-    } catch (error) {
-        console.error('Error al conseguir datos de la tarea:', error);
-        throw error; // Puedes manejar este error según tus necesidades
-    }
-
+// + id
+export const ingresarStock = async (id, stockIngresado) => {
+  try {
+    const response = await axios.patch(
+      `${API_URL}/ingresoDeStock/${id}`,
+      stockIngresado
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error al conseguir datos de la tarea:", error);
+    throw error;
+  }
 };
 
 // {
 //     "stockRetirado" : 100
 // }
 // +id
-export const egresoDeStock = async (id,stockRetirado) => {
- 
-    try {
-        const response = await axios.patch(`${API_URL}/egresoDeStock/${id}`,stockRetirado);
-        return response.data;
-    } catch (error) {
-        console.error('Error al conseguir datos de la tarea:', error);
-        throw error; // Puedes manejar este error según tus necesidades
-    }
-
+export const egresoDeStock = async (id, stockRetirado) => {
+  try {
+    const response = await axios.patch(
+      `${API_URL}/egresoDeStock/${id}`,
+      stockRetirado
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error al conseguir datos de la tarea:", error);
+    throw error;
+  }
 };
 
-// id 
+// id
 export const getProducto = async (id) => {
- 
-    try {
-        const response = await axios.get(`${API_URL}/obtener/${id}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error al conseguir datos de la tarea:', error);
-        throw error; // Puedes manejar este error según tus necesidades
-    }
-
+  try {
+    const response = await axios.get(`${API_URL}/obtener/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al conseguir datos de la tarea:", error);
+    throw error;
+  }
 };
 
 export const obtenerAll = async () => {
- 
-    try {
-        console.log("aca");
-        const response = await axios.get(`${API_URL}/obtenerAll`);
-        console.log("tus datos"+ response.data);
-        return response.data;
-    } catch (error) {
-        console.error('Error al conseguir datos de la tarea:', error);
-        throw error; // Puedes manejar este error según tus necesidades
-    }
-
+  try {
+    console.log("aca");
+    const response = await axios.get(`${API_URL}/obtenerAll`);
+    console.log("tus datos" + response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error al conseguir datos de la tarea:", error);
+    throw error;
+  }
 };
 
-export default { ingresarStock, egresoDeStock, crearProducto, getProducto, obtenerAll };
+export default {
+  ingresarStock,
+  egresoDeStock,
+  crearProducto,
+  getProducto,
+  obtenerAll,
+};

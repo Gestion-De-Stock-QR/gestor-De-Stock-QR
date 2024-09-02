@@ -25,9 +25,8 @@ export const NuevoProducto = () => {
 
   const handleCrearProducto = async (producto) => {
     try {
-      console.log('entra')
       const response = await crearProducto(producto);
-      console.log('sale')
+
       setQrCodeData(response.id);
     } catch (error) {
       console.error("Error registrando:", error);
@@ -50,9 +49,7 @@ export const NuevoProducto = () => {
       umbral: umbralDelProducto,
     };
 
-
     handleCrearProducto(producto);
- 
   };
 
   const handleDescargaQR = () => {
@@ -132,9 +129,8 @@ export const NuevoProducto = () => {
           </div>
         )}
       </div>
-    
     </div>
-      
-)};
+  );
+};
 
 export default NuevoProducto;

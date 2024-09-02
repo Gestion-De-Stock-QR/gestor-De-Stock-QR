@@ -8,14 +8,14 @@
     
     height: 100vh;
 
-    background-image: url('../fondo.jpg'); /* fondo de imagen */
+    background-image: url('../fondo.jpg'); 
     background-size: cover; 
-    background-position: center; /* Centra la imagen en el fondo */
+    background-position: center; 
 }
 
 .subtitulo-nuevoProducto {
-    font-size: 2rem; /* Tamaño de fuente grande para subtítulos */
-    color: #07398E; /* Color para el subtítulo */
+    font-size: 2rem; 
+    color: #07398E; 
     text-align: center;
 }
 
@@ -27,15 +27,15 @@
 
 label {
     font-weight: bold;
-    color: #103753; /* Color de texto de etiqueta */
+    color: #103753;
 }
 
 input {
     padding: 0.6em;
     border-radius: 0.5em;
-    border: 1px solid #636e72; /* Borde gris oscuro */
-    background-color: #fff; /* Fondo blanco */
-    color: #2d3436; /* Texto oscuro */
+    border: 1px solid #636e72;
+    background-color: #fff; 
+    color: #2d3436; 
     border: none;
     outline: none;
 }
@@ -50,8 +50,8 @@ input:focus{
     flex-direction: column;
     gap: 1em;
     margin-top: 1em;
-    width: 100%; /* Asegura que el grupo del formulario se extienda al ancho disponible */
-    max-width: 400px; /* Limita el ancho máximo */
+    width: 100%; 
+    max-width: 400px; 
 }
 
 .boton-generar-qr {
@@ -59,8 +59,8 @@ input:focus{
     
     width: 100%;
     max-width: 400px;
-    background-color: #bababa; /* Color de botón */
-    color: #2d3436; /* Texto oscuro para contraste */
+    background-color: #bababa; 
+    color: #2d3436; 
     border: none;
     border-radius: 1em;
     font-weight: bold;
@@ -76,8 +76,8 @@ input:focus{
 .boton-qr-imprimir {
     margin: auto;
     padding: 1em;
-    background-color: #636e72; /* Color de botón de impresión */
-    color: #fff; /* Texto blanco */
+    background-color: #636e72; 
+    color: #fff; 
     border: none;
     border-radius: 1em;
     font-weight: bold;
@@ -86,36 +86,36 @@ input:focus{
 }
 
 .boton-qr-imprimir:hover {
-    background-color: #2d3436; /* Cambio de color en hover */
+    background-color: #2d3436; 
 }
 
 .container-boton-imprimir-qr {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Asegura que el contenedor se extienda al ancho disponible */
-    max-width: 400px; /* Limita el ancho máximo */
+    width: 100%; 
+    max-width: 400px; 
 }
 
-/* Media queries para diseño responsivo */
+
 @media (max-width: 768px) {
     .subtitulo-nuevoProducto {
-        font-size: 1.8rem; /* Reducir el tamaño de fuente en pantallas medianas */
+        font-size: 1.8rem; 
     }
     .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
-        max-width: 300px; /* Reducir el ancho máximo en pantallas medianas */
+        max-width: 300px; 
     }
 }
 
 @media (max-width: 480px) {
     .subtitulo-nuevoProducto {
-        font-size: 1.6rem; /* Reducir más el tamaño de fuente en pantallas pequeñas */
+        font-size: 1.6rem;
     }
     .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
-        max-width: 250px; /* Reducir aún más el ancho máximo en pantallas pequeñas */
+        max-width: 250px; 
     }
     input, .boton-generar-qr, .boton-qr-imprimir {
-        font-size: 14px; /* Reducir tamaño de fuente y padding en dispositivos pequeños */
+        font-size: 14px; 
         padding: 0.8em;
     }
 }

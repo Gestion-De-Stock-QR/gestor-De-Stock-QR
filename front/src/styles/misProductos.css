@@ -5,32 +5,32 @@
     justify-content: center;
     align-items: center;
     gap: 1em;
-    padding: 2em; /* Añadido para mayor espacio en dispositivos pequeños */
-    background-color: #2d3436; /* Color de fondo */
+    padding: 2em; 
+    background-color: #2d3436; 
 }
 
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%; /* Asegura que el ul use todo el espacio disponible */
+    width: 100%;
 }
 
 strong {
     margin: 1em;
-    color: #e17055; /* Cambia el color del texto para destacar */
+    color: #e17055; 
 }
 
 @media (max-width: 600px) {
     .container-misProductos {
-        padding: 1em; /* Reduce el padding en pantallas pequeñas */
+        padding: 1em; 
     }
     
     ul {
-        width: 90%; /* Reduce el ancho para dispositivos más pequeños */
+        width: 90%; 
     }
 
     strong {
-        font-size: 1.2em; /* Aumenta el tamaño de fuente para visibilidad */
+        font-size: 1.2em; 
     }
 }

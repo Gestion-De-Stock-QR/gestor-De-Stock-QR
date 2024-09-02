@@ -1,10 +1,13 @@
-import React from 'react'
-import { ingresarStock } from '../../../../servicios/productoService';
+import React from "react";
+import { ingresarStock } from "../../../../servicios/productoService";
 
-export const IngresarStock = (saborSeleccionadoStock,cantidadNumero,saborSeleccionadoId) => {
-    let nuevoStock = saborSeleccionadoStock + cantidadNumero;
-      // llamar a la función para actualizar el stock en la base de datos
-    // IngresarStockBaseDeDatos(saborSeleccionado.id, nuevoStock);
-    ingresarStock(saborSeleccionadoId,cantidadNumero);
-    console.log(`stock actualizado ${nuevoStock} ` + saborSeleccionadoId )
+export const IngresarStock = (
+  saborSeleccionadoStock,
+  cantidadNumero,
+  saborSeleccionadoId
+) => {
+  let nuevoStock = saborSeleccionadoStock + cantidadNumero;
+
+  ingresarStock(saborSeleccionadoId, cantidadNumero);
+  console.log(`stock actualizado ${nuevoStock} ` + saborSeleccionadoId);
 };

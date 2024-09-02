@@ -15,9 +15,9 @@
     justify-content: center;
     align-items: center;
     gap: 2em;
-    background-color: rgba(49, 93, 213, 0.5); /* semi-transparente */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interior */
+    background-color: rgba(49, 93, 213, 0.5); 
+    border-radius: 10px; 
+    padding: 20px; 
 
 }
 
@@ -26,8 +26,8 @@ button {
     min-width: 20em;
     padding: 1em;
     border-radius: 1em;
-    background-color: #bababa; /* Color de botón */
-    color: #2d3436; /* Texto oscuro para contraste */
+    background-color: #bababa; 
+    color: #2d3436;
     outline: none;
     border: none;
     font-weight: bold;
@@ -43,23 +43,23 @@ button:hover {
 }
 h1 {
     margin: 0;
-    font-size: 2.5em; /* Aumenta el tamaño del h1 para destacarlo */
-    color: #cdcdcd; /* Color del texto del h1 */
+    font-size: 2.5em;
+    color: #cdcdcd; 
   }
 
 
 
-/* Media queries para hacerlo responsive */
+
 @media(max-width: 768px) {
     button {
-        min-width: 18em; /* Botones aún más pequeños en pantallas pequeñas */
+        min-width: 18em; 
         padding: 1em;
     }
 }
 
 @media(max-width: 480px) {
     button {
-        min-width: 17em; /* Botones aún más pequeños en pantallas pequeñas */
+        min-width: 17em;
         padding: 1em;
     }
 }

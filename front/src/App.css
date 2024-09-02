@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   margin: auto;
-  background: radial-gradient(circle, #144c74,#103753,#144c74); /* Fondo oscuro */
+  background: radial-gradient(circle, #144c74,#103753,#144c74);
   min-height: 100vh;
 }
 
@@ -10,10 +10,10 @@ body {
 }
 
 a {
-  color: #2F5597; /* Color para enlaces */
+  color: #2F5597; 
   text-decoration: none;
 }
 
 a:hover {
-  color: #636e72; /* Cambia de color al pasar el ratón */
+  color: #636e72;
 }
