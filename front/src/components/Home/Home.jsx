@@ -25,13 +25,14 @@ export const Home = () => {
 
   return (
     <div className="container-home">
-      <h1>Costa Nevada</h1>
-      <button className="boton-inicio" onClick={ handleAgregarProducto }>Agregar nuevo producto</button>
-      <button className="boton-inicio" onClick={ handleActualizarStock }>Actualizar stock</button>
-      <button className="boton-inicio" onClick={ handleVerProductos }>Mis productos</button>
-      <button className="boton-inicio" onClick={ handleVerHistorial }>Historial</button>
+      <div className="container-sub">
+        <h1>Costa Nevada</h1>
+        <button className="boton-inicio" onClick={ handleAgregarProducto }>Agregar nuevo producto</button>
+        <button className="boton-inicio" onClick={ handleActualizarStock }>Actualizar stock</button>
+        <button className="boton-inicio" onClick={ handleVerProductos }>Mis productos</button>
+        <button className="boton-inicio" onClick={ handleVerHistorial }>Historial</button>
 
-
+      </div>
     </div>
   );
 };
