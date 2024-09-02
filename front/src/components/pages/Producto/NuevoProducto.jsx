@@ -132,8 +132,8 @@ export const NuevoProducto = () => {
           </div>
         )}
       </div>
-    );
-      </div>
+    
+    </div>
       
 )};
 
