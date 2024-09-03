@@ -54,6 +54,7 @@ export const ActualizarStock = () => {
         saborSeleccionado.id
       );
     }
+    handleAtras();
   };
 
   return (
