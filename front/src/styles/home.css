@@ -44,9 +44,18 @@ button:hover {
     border: solid #cdcdcd 1px;
 }
 h1 {
-    margin: 0;
-    font-size: 2.5em; /* Aumenta el tamaño del h1 para destacarlo */
-    color: #cdcdcd; /* Color del texto del h1 */
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #d1ddd1, #e0e7d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
 
 
