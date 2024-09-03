@@ -31,7 +31,6 @@ export const MisProductos = () => {
   }, []);
 
   if (loading) { return <div>Cargando...</div>;}
-
   if (error) {  return <div>{error}</div>;}
 
   return (
