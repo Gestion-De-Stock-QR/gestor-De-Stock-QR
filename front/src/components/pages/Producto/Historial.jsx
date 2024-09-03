@@ -40,7 +40,7 @@ export const Historial = () => {
   if (error) return <p>{`Error: ${error}`}</p>;
 
   return (
-    <div>
+    <div className="container-his">
       <button onClick={handleAtras}>Atras</button>
       <button onClick={handleExportarExcel}>Exportar a Excel</button>
       <div>
