@@ -30,6 +30,7 @@ export const ActualizarStock = () => {
   const handleIniciarEscaneo = () => {
     handleStartScan(setScanResult, setSaborSeleccionado, scannerRef);
   };
+  
 
   const handleActualizarStock = () => {
     const cantidadNumero = parseInt(cantidad, 10);
@@ -44,6 +45,7 @@ export const ActualizarStock = () => {
         saborSeleccionado.stock,
         cantidadNumero,
         saborSeleccionado.id
+        
       );
     } else if (accion === "egresar") {
       EgresarStock(

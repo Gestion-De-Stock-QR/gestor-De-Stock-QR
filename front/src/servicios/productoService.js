@@ -28,7 +28,7 @@ export const ingresarStock = async (id, stockIngresado) => {
   try {
     const response = await axios.patch(
       `${API_URL}/ingresoDeStock/${id}`,
-      stockIngresado
+      {stockIngresado}
     );
     return response.data;
   } catch (error) {
@@ -45,7 +45,7 @@ export const egresoDeStock = async (id, stockRetirado) => {
   try {
     const response = await axios.patch(
       `${API_URL}/egresoDeStock/${id}`,
-      stockRetirado
+      {stockRetirado}
     );
     return response.data;
   } catch (error) {
@@ -57,9 +57,7 @@ export const egresoDeStock = async (id, stockRetirado) => {
 // id
 export const getProducto = async (id) => {
   try {
-    console.log(id)
     const response = await axios.get(`${API_URL}/obtener/${id}`);
-    console.log(response.data)
     return response.data;
   } catch (error) {
     throw new HttpException('Error al opbtener el producto', HttpStatus.INTERNAL_SERVER_ERROR);

@@ -16,7 +16,6 @@ const handleStartScan = (setScanResult, setSaborSeleccionado, scannerRef) => {
 
     const onScanSuccess = async (decodedText) => {
       setScanResult(decodedText);
-      console.log(`Scan result: ${decodedText}`);
 
       const scannedID = parseInt(decodedText, 10);
 

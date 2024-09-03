@@ -1,13 +1,21 @@
-import React from "react";
 import { ingresarStock } from "../../../../servicios/productoService";
 
-export const IngresarStock = (
+export const IngresarStock = async (
   saborSeleccionadoStock,
   cantidadNumero,
   saborSeleccionadoId
 ) => {
-  let nuevoStock = saborSeleccionadoStock + cantidadNumero;
-
-  ingresarStock(saborSeleccionadoId, cantidadNumero);
-  console.log(`stock actualizado ${nuevoStock} ` + saborSeleccionadoId);
+  try {
+    const response = await ingresarStock(saborSeleccionadoId, cantidadNumero);
+    
+    
+    if (response && response.success) { 
+      const nuevoStock = saborSeleccionadoStock + cantidadNumero;
+      console.log(`Stock actualizado: ${nuevoStock} para el ID ${saborSeleccionadoId}`);
+    } else {
+      console.warn(`Error al actualizar el stock para el ID ${saborSeleccionadoId}`);
+    }
+  } catch (error) {
+    console.error("Error al ingresar stock:", error);
+  }
 };
