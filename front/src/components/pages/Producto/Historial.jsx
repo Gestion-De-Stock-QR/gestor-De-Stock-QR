@@ -38,7 +38,7 @@ export const Historial = () => {
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{`Error: ${error}`}</p>;
-
+  
   return (
     <div className="container-his">
       <button onClick={handleAtras}>Atras</button>

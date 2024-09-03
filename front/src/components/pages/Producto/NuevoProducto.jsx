@@ -94,7 +94,7 @@ export const NuevoProducto = () => {
           </div>
           <div className="form-group">
             <label htmlFor="productUmbral">Umbral:</label>
-            <input
+            <input className="input-umbral"
               type="number"
               id="productUmbral"
               value={umbralDelProducto}

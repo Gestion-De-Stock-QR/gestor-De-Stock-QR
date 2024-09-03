@@ -5,10 +5,8 @@
     align-items: center;
     margin: auto;
     padding: 1em;
-    
     height: 100vh;
-
-    background-image: url('../fondo.jpg'); 
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenes/fond1.jpg') no-repeat center center/cover;
     background-size: cover; 
     background-position: center; 
 }
@@ -53,9 +51,11 @@ input:focus{
     width: 100%; 
     max-width: 400px; 
 }
-
+.input-umbral{
+    margin-bottom: 1em;
+}
 .boton-generar-qr {
-    margin-top: 1em;
+    margin: auto;
     
     width: 100%;
     max-width: 400px;

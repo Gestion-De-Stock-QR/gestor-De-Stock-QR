@@ -6,10 +6,12 @@
     align-items: center;
     gap: 1em;
     padding: 2em; 
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('../fond1.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('imagenes/fondo.jpg') no-repeat center center/cover;}
+
+h2{
+    margin: auto;
 }
-
-
 ul {
     list-style: none;
     padding: 0;

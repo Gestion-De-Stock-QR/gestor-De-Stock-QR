@@ -60,11 +60,10 @@ export const ActualizarStock = () => {
     <div className="container-actualizarStock">
       <div className="container-subb">
           <button onClick={handleAtras}>Atras</button>
-          <h2>Actualizar stock</h2>
           <button onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
 
           {saborSeleccionado && (
-            <div>
+            <div className="scaner-container"> 
               <h2>Resultado del Escaneo:</h2>
               <h1>Nombre: {saborSeleccionado.nombre}</h1>
               <h1>Stock: {saborSeleccionado.stock}</h1>

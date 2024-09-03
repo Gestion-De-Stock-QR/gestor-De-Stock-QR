@@ -1,27 +1,17 @@
-.container-actualizarStock {
+.container-actualizarStock{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenes/fondo3.jpeg') no-repeat center center/cover;
+}
+.container-subb {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    gap: 2em;
+    gap: 3em;
     padding: 2em; 
-    background-image: url('../fond1.jpg'); /* fondo de imagen */
+    margin: 0;
     background-size: cover;  /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen en el fondo */
-}
-.container-actualizarStock {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    gap: 2em;
-    padding: 2em; 
-    background-color: rgba(53, 58, 181, 0.5); 
-    border-radius: 10px;
-    
 }
 
 h1, h2 {
@@ -38,11 +28,13 @@ h2 {
     font-weight: bold;
 }
 
-@media (max-width: 600px) {
-    .container-actualizarStock {
-        padding: 1em;
-    }
 
+@media  (min-width:1000px){
+    button{
+        background-color: black;
+    }
+  }
+@media (max-width: 600px) {
     h1 {
         font-size: 2em; 
     }
