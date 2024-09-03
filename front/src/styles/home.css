@@ -17,9 +17,9 @@
     justify-content: center;
     align-items: center;
     gap: 2em;
-    background-color: rgba(49, 93, 213, 0.5); /* semi-transparente */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interior */
+    background-color: rgba(53, 58, 181, 0.5); 
+    border-radius: 10px; 
+    padding: 20px; 
 
 }
 
