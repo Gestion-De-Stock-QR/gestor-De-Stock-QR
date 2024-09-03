@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import "../../../styles/nuevoProducto.css";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,20 @@ export const NuevoProducto = () => {
   const [stockDelProducto, setStockDelProducto] = useState(0);
   const [umbralDelProducto, setUmbralDelProducto] = useState(0);
   const [qrCodeData, setQrCodeData] = useState("");
+  const [qrSize, setQrSize] = useState(300); // Estado del tamaño del QR
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setQrSize(window.innerWidth < 800 ? 200 : 300);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleInputChangeNombre = (event) => {
     setNombreDelProducto(event.target.value);
@@ -71,7 +84,7 @@ export const NuevoProducto = () => {
   return (
     <div className="container-nuevoProducto">
       <div className="registro-producto">
-        <button onClick={handleAtras}>Atrás</button>
+        <button className="boton-atras" onClick={handleAtras}>Atrás</button>
         <form>
           <div className="form-group">
             <label htmlFor="productName">Nombre del Producto:</label>
@@ -116,7 +129,7 @@ export const NuevoProducto = () => {
               className="QR"
               id="qrCodeCanvas"
               value={qrCodeData}
-              size={300}
+              size={qrSize}  // Tamaño ajustable del QR
               level={"H"}
               includeMargin={true}
             />

@@ -56,8 +56,6 @@ input:focus{
     margin-bottom: 1em;
 }
 .boton-generar-qr {
-    margin: auto;
-    
     width: 100%;
     max-width: 400px;
     background-color: #bababa; 
@@ -66,6 +64,14 @@ input:focus{
     border-radius: 1em;
     font-weight: bold;
     cursor: pointer;
+}
+
+.qr-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 .boton-generar-qr:hover {
@@ -97,7 +103,9 @@ input:focus{
     width: 100%; 
     max-width: 400px; 
 }
-
+.boton-atras{
+    margin: auto;
+}
 
 @media (max-width: 768px) {
     .subtitulo-nuevoProducto {
@@ -108,7 +116,7 @@ input:focus{
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .subtitulo-nuevoProducto {
         font-size: 1.6rem;
     }
@@ -118,5 +126,5 @@ input:focus{
     input, .boton-generar-qr, .boton-qr-imprimir {
         font-size: 14px; 
         padding: 0.8em;
-    }
+    } 
 }
