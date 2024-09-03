@@ -39,7 +39,7 @@ export const MisProductos = () => {
           <button className="btn-back" onClick={handleAtras}>
             Atrás
           </button>
-          <h2>Mis productos</h2>
+          <h1>Mis productos</h1>
           <div className="productos-grid">
             {productosData.length > 0 ? (
               productosData.map((producto) => (
