@@ -10,7 +10,7 @@ export class Historial extends Model<Historial> {
   id: number;
 
   @Column
-  stockIngresado: number ;
+  cantidadStock: number ;
 
   @Column
   fecha: Date;

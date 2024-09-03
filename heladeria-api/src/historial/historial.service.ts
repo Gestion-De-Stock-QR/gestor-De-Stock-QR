@@ -12,9 +12,9 @@ export class HistorialService {
         @InjectModel(Historial) private readonly historialRepositorio: typeof Historial
     ) { }
 
-    async crear(stockIngresado: number, tipo: TipoHistorial, fecha: Date, productoId: number) {
+    async crear(cantidadStock: number, tipo: TipoHistorial, fecha: Date, productoId: number) {
         const historial = await this.historialRepositorio.create({
-            stockIngresado,
+            cantidadStock,
             tipo,
             fecha,
             productoId,
