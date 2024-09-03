@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../fondo.jpg'); /* fondo de imagen */
-    background-size: cover; 
+    background-image: url('../fondo3.jpeg'); /* fondo de imagen */
+    background-size: cover;  /* Asegura que la imagen cubra todo el fondo */
     background-position: center; /* Centra la imagen en el fondo */
 }
 .container-sub {  
@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     gap: 2em;
-    background-color: rgba(49, 93, 213, 0.5); 
+    background-color: rgba(53, 58, 181, 0.5); 
     border-radius: 10px; 
     padding: 20px; 
 
@@ -42,9 +42,14 @@ button:hover {
     border: solid #cdcdcd 1px;
 }
 h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: #cdcdcd; 
+    margin: 30px 0;
+    font-size: 3.5em;
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.2;
+    background: linear-gradient(90deg, #cdcdcd, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   }
 
 

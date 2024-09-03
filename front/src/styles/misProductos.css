@@ -6,7 +6,12 @@
     align-items: center;
     gap: 1em;
     padding: 2em; 
-    background-color: #2d3436; 
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('../fond1.jpg') no-repeat center center/cover;
+
+   /* background-image: url('../fond1.jpg'); /* fondo de imagen */
+    background-size: cover;  /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    
 }
 
 ul {

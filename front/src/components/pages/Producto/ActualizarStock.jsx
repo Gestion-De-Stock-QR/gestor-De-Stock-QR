@@ -58,31 +58,33 @@ export const ActualizarStock = () => {
 
   return (
     <div className="container-actualizarStock">
-      <button onClick={handleAtras}>Atras</button>
-      <h2>Actualizar stock</h2>
-      <button onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
+      <div className="container-subb">
+          <button onClick={handleAtras}>Atras</button>
+          <h2>Actualizar stock</h2>
+          <button onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
 
-      {saborSeleccionado && (
-        <div>
-          <h2>Resultado del Escaneo:</h2>
-          <h1>Nombre: {saborSeleccionado.nombre}</h1>
-          <h1>Stock: {saborSeleccionado.stock}</h1>
-          <h1>Umbral: {saborSeleccionado.umbral}</h1>
+          {saborSeleccionado && (
+            <div>
+              <h2>Resultado del Escaneo:</h2>
+              <h1>Nombre: {saborSeleccionado.nombre}</h1>
+              <h1>Stock: {saborSeleccionado.stock}</h1>
+              <h1>Umbral: {saborSeleccionado.umbral}</h1>
 
-          <StockControl
-            accion={accion}
-            setAccion={setAccion}
-            cantidad={cantidad}
-            setCantidad={setCantidad}
-            handleActualizarStock={handleActualizarStock}
-          />
-        </div>
-      )}
+              <StockControl
+                accion={accion}
+                setAccion={setAccion}
+                cantidad={cantidad}
+                setCantidad={setCantidad}
+                handleActualizarStock={handleActualizarStock}
+              />
+            </div>
+          )}
 
-      <div
-        id="reader"
-        style={{ width: "290px", height: "250px", marginTop: "20px" }}
-      ></div>
+          <div
+            id="reader"
+            style={{ width: "290px", height: "250px", marginTop: "20px" }}
+          ></div>
+       </div>   
     </div>
   );
 };
