@@ -80,8 +80,8 @@ export const ActualizarStock = () => {
           )}
 
           <div
-            id="reader"
-            style={{ width: "290px", height: "250px", marginTop: "20px" }}
+            id="reader" 
+            style={{ width: "380px", height: "480px", marginTop: "10px" }}
           ></div>
        </div>   
     </div>

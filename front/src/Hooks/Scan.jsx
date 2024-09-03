@@ -9,7 +9,7 @@ const handleStartScan = (setScanResult, setSaborSeleccionado, scannerRef) => {
   if (!scannerRef.current) {
     const html5QrCodeScanner = new Html5QrcodeScanner("reader", {
       fps: 10,
-      qrbox: { width: 250, height: 250 },
+      qrbox: { width: 370, height: 370 },
       aspectRatio: 1.0,
       disableFlip: false,
     });
