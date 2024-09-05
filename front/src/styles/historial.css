@@ -37,77 +37,55 @@ button:hover {
 
 
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  background-color: #efefef;
 }
 
-
-thead th {
-  background-color: #f0f0f0;
-  color: #333;
-  font-weight: bold;
-  padding: 10px;
-  border: 1px solid #000;
-  text-align: left;
-  position: sticky;
-  top: 0;
-  z-index: 1; /* Asegura que el encabezado esté sobre el contenido de la tabla */
+th{
+  color: white;
+  background-color: #102020;
+}
+table tr:nth-of-type(odd){
+  background-color: #aaa;
 }
 
-
-tbody td {
-  padding: 10px;
-  border: 1px solid #000;
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
 }
 
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+   
 
-tbody tr {
-  background-color: #fff; 
-}
-
-
-tbody tr:hover {
-  background-color: #f0f0f0; 
-}
-
-@media (max-width: 600px) {
-  table {
-      width: 100%;
-      border: none; 
-      border-collapse: separate;
-      border-spacing: 0;
+  table{
+    border: none;
   }
+  table thead {
+      display: none;
+    }
 
-  thead {
-      display: none; 
-  }
-
-  tbody td {
+  table tr {
       display: block;
-      width: 100%;
-      box-sizing: border-box;
-      position: relative;
-      padding: 10px 5px;
-      border: 1px solid #000;
-  }
-
-  tbody td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 45%;
-      padding: 5px;
-      font-weight: bold;
-      background-color: #f0f0f0;
-      text-align: left;
-      border-right: 1px solid #000; 
-  }
-
-  tbody tr {
+    }
+  table th, .table td {
+      font-size: 1px;
+    }
+  table td {
       display: block;
-      margin-bottom: 15px;
       border-bottom: 1px solid #ddd;
-  }
+      text-align: left;
+    }
+  table  td:last-child {
+      border-bottom: 0px;
+    }
+  table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-transform: uppercase;
+      float: left;
+    }
 }
