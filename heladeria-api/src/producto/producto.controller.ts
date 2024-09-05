@@ -34,7 +34,7 @@ export class ProductoController {
         try {
 
             this.guardarHistorial(stockIngresado,TipoHistorial.INGRESO,id);
-            return await this.productoService.darDeAlta(id, stockIngresado);
+            return await this.productoService.ingresoDeStock(id, stockIngresado);
         }
         catch (error) {
             throw new NotFoundException(`No se pudo dar de alta producto: ${error.message}`);
@@ -47,7 +47,7 @@ export class ProductoController {
         try {
 
             this.guardarHistorial(stockRetirado,TipoHistorial.EGRESO,id);
-            return await this.productoService.darDeBaja(id, stockRetirado);
+            return await this.productoService.egresoDeStock(id, stockRetirado);
         }
         catch (error) {
             throw new NotFoundException(`No se pudo dar de baja producto: ${error.message}`);

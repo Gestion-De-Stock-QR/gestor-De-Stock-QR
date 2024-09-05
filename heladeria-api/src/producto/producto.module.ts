@@ -5,6 +5,7 @@ import { Producto } from "./producto.model";
 import { SequelizeModule } from '@nestjs/sequelize';
 
 import { HistorialModulo } from 'src/historial/historial.modulo';
+import { NotificacionesGateway } from 'src/notificaciones/notificaciones';
 
 
 @Module({
@@ -13,6 +14,6 @@ import { HistorialModulo } from 'src/historial/historial.modulo';
         HistorialModulo
     ],
     controllers: [ProductoController],
-    providers: [ProductoService],
+    providers: [ProductoService, NotificacionesGateway],
 })
 export class ProductoModule { }

@@ -2,19 +2,21 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Producto } from './producto.model';
 import { HistorialService } from 'src/historial/historial.service';
+import { NotificacionesGateway } from  "../notificaciones/notificaciones"
 
 @Injectable()
 export class ProductoService {
 
     constructor(
-        @InjectModel(Producto) private readonly productoRepo: typeof Producto
+        @InjectModel(Producto) private readonly productoRepo: typeof Producto,
+        private notificaciones : NotificacionesGateway
     ) { }
 
     async crear(producto: Producto): Promise<Producto> {
         return await this.productoRepo.create(producto);
     }
 
-    async darDeAlta(id: number, stockIngresado: number): Promise<Producto> {
+    async ingresoDeStock(id: number, stockIngresado: number): Promise<Producto> {
         const producto = await this.productoRepo.findByPk(id);
         if (!producto) {
             throw new NotFoundException(`Producto con ID ${id} no encontrado`);
@@ -27,18 +29,24 @@ export class ProductoService {
     }
 
 
-    async darDeBaja(id: number, stockIngresado: number): Promise<Producto> {
+    async egresoDeStock(id: number, stockEgreso: number): Promise<Producto> {
         const producto = await this.productoRepo.findByPk(id);
         if (!producto) {
             throw new NotFoundException(`Producto con ID ${id} no encontrado`);
         }
-        this.DesminuirStock(stockIngresado, producto);
-
-        await producto.save();
+       
+        if (this.validarStock(stockEgreso,producto.umbral,producto.stock)){   
+            this.notificaciones.enviarAlertaUmbral();
+        }else{
+            this.DesminuirStock(stockEgreso, producto);
+            await producto.save();
+        }
 
         return producto;
     }
-
+    validarStock(stockEgreso: number,umbral : number,stockActual : number){
+        return  stockActual - stockEgreso <= umbral;
+    }
 
     aumentarStock(stockIngresado: number, productoActual: Producto) {
         productoActual.stock = productoActual.stock + stockIngresado;
