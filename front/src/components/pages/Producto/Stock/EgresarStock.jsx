@@ -1,4 +1,4 @@
-import React from "react";
+
 import { egresoDeStock } from "../../../../servicios/productoService";
 
 export const EgresarStock = async (

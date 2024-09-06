@@ -5,6 +5,7 @@ import { NuevoProducto } from "../components/pages/Producto/NuevoProducto";
 import { ActualizarStock } from "../components/pages/Producto/ActualizarStock";
 import { MisProductos } from "../components/pages/Producto/MisProductos";
 import { Historial } from "../components/pages/Producto/Historial";
+import Notificaciones from "../components/Home/Notificaciones";
 // import { Login } from '../components/pages/Login/Login'
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     path: "/historial",
     element: <Historial />,
   },
+  {
+    path: "/notificaciones",
+    element: <Notificaciones/>
+  }
 ]);
 
 export const MyRoutes = () => {

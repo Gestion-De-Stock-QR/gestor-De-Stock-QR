@@ -14,7 +14,7 @@ export const ActualizarStock = () => {
   const [accion, setAccion] = useState("");
   const [cantidad, setCantidad] = useState("");
   const scannerRef = useRef(null);
-  const [banderaStock, setBanderaStock] = useState(true);
+
 
   const handleAtras = () => {
     navigate("/");
