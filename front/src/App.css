@@ -17,3 +17,17 @@ a {
 a:hover {
   color: #636e72;
 }
+
+.toast-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+@media (max-width: 768px) {
+  .toast-container {
+    width: 90%;
+  }
+}

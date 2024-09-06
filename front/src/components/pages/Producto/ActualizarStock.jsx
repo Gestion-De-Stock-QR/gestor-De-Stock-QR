@@ -5,6 +5,7 @@ import handleStartScan from "../../../Hooks/Scan";
 import { EgresarStock } from "./Stock/EgresarStock";
 import { IngresarStock } from "./Stock/IngresarStock";
 import ManejoStock from "./Stock/ManejoStock";
+import { toast } from "react-toastify";
 
 export const ActualizarStock = () => {
   const navigate = useNavigate();
@@ -28,7 +29,6 @@ export const ActualizarStock = () => {
     };
   }, []);
 
-
   const handleIniciarEscaneo = () => {
     handleStartScan(setScanResult, setSaborSeleccionado, scannerRef);
   };
@@ -46,7 +46,6 @@ export const ActualizarStock = () => {
         saborSeleccionado.stock,
         cantidadNumero,
         saborSeleccionado.id
-        
       );
     } else if (accion === "egresar") {
       EgresarStock(
@@ -55,8 +54,13 @@ export const ActualizarStock = () => {
         saborSeleccionado.id
       );
     }
-    setBanderaStock(!banderaStock);
-  
+
+    
+    toast.success('Stock actualizado', {
+      onClose: () => {
+        navigate("/");
+      }
+    });
   };
 
   return (

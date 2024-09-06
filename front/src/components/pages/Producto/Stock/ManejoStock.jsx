@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import StockControl from "../StockControl";
 
 const ManejoStock = ({ saborSeleccionado, accion, setAccion, cantidad, setCantidad, handleActualizarStock }) => {
-
   return (
     <div className="scaner-container"> 
       <h2>Resultado del Escaneo:</h2>

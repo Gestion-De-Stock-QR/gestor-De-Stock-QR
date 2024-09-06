@@ -66,9 +66,7 @@ export const getProducto = async (id) => {
 
 export const obtenerAll = async () => {
   try {
-    console.log("aca");
     const response = await axios.get(`${API_URL}/obtenerAll`);
-    console.log("tus datos" + response.data);
     return response.data;
   } catch (error) {
     console.error("Error al conseguir datos de la tarea:", error);
