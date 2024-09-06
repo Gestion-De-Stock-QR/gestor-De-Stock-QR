@@ -31,34 +31,35 @@ export const MisProductos = () => {
     fetchProductos();
   }, []);
 
-  if (loading) { return <div>Cargando...</div>;}
-  if (error) {  return <div>{error}</div>;}
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="container-his">
-        <div className="container-misProductos">
-          <button className="btn-back" onClick={handleAtras}>
-            Atrás
-          </button>
-          <h1>Mis productos</h1>
-          <div className="productos-grid">
-            
-            {productosData.length > 0 ? (
-              productosData.map((producto) => (
-                <section className="producto-card">
+      <div className="container-misProductos">
+        <button className="btn-back" onClick={handleAtras}>
+          Atrás
+        </button>
+        <h1>Mis productos</h1>
+        <div className="productos-grid">
+          {productosData.length > 0 ? (
+            productosData.map((producto) => (
+              <section className="producto-card" key={producto.id}>
                 <ProductoCard
-                key={producto.id}
-                nombre={producto.nombre}
-                stock={producto.stock}
-                /></section>
-              ))
-            ) : (
-              <p>No hay productos disponibles.</p>
-            )}
-            </div>
-          
+                  nombre={producto.nombre}
+                  stock={producto.stock}
+                />
+              </section>
+            ))
+          ) : (
+            <p>No hay productos disponibles.</p>
+          )}
         </div>
-     </div>    
-
+      </div>
+    </div>
   );
 };
