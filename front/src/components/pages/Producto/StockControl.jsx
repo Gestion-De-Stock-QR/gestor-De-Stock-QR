@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../../styles/stockControl.css";
 const StockControl = ({
   accion,
   setAccion,
@@ -8,10 +8,10 @@ const StockControl = ({
   handleActualizarStock,
 }) => {
   return (
-    <div>
-      <div>
+    <div className="containerGeneral-stock">
+      <div className="container-control-stock">
         <label>
-          <input
+          <input className="ingresar"
             type="radio"
             name="accion"
             value="ingresar"
@@ -21,7 +21,7 @@ const StockControl = ({
           Ingresar
         </label>
         <label>
-          <input
+          <input className="egresar"
             type="radio"
             name="accion"
             value="egresar"
@@ -30,21 +30,17 @@ const StockControl = ({
           />
           Egresar
         </label>
-      </div>
 
-      <div>
-        <label>
-          Cantidad:
-          <input
+          <input className="input-actualizacion-stock"
             type="number"
             value={cantidad}
             onChange={(e) => setCantidad(e.target.value)}
             placeholder="Ingrese cantidad"
           />
-        </label>
+        <button className="boton-actualizar-stock" onClick={handleActualizarStock}>Actualizar Stock</button>
       </div>
 
-      <button onClick={handleActualizarStock}>Actualizar Stock</button>
+      
     </div>
   );
 };

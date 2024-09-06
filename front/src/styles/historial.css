@@ -5,23 +5,20 @@ div {
   overflow-x: auto;
 
 }
+
 .container-his{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenes/heladito3.jpg') no-repeat center center/cover;
-
   background-size: cover;  /* Asegura que la imagen cubra todo el fondo */
   background-position: center; /* Centra la imagen en el fondo */
 }
 
-
 button {
   margin: 10px 5px;
   padding: 10px 15px;
-  background-color: #0078d4; 
   color: white;
   border: none;
   cursor: pointer;
@@ -30,17 +27,23 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #005a9e; 
-  transform: translateY(-2px); 
+.boton-atras-historial, .boton-excel{
+  background-color: #efefef;
+  color: #222;
 }
 
+.boton-atras-historial:hover, .boton-excel:hover{
+  color: #047440 ;
+  transition: 0.2s;
+  background-color: #efefef;
+}
 
 
 table { 
   width: 100%; 
   border-collapse: collapse; 
   background-color: #efefef;
+
 }
 
 th{
@@ -60,32 +63,31 @@ td, th {
 @media only screen and (max-width: 600px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
    
-
   table{
     border: none;
   }
   table thead {
       display: none;
-    }
+  }
 
   table tr {
       display: block;
-    }
+  }
   table th, .table td {
       font-size: 1px;
-    }
+  }
   table td {
       display: block;
       border-bottom: 1px solid #ddd;
       text-align: left;
-    }
+  }
   table  td:last-child {
       border-bottom: 0px;
-    }
+  }
   table td::before {
       content: attr(data-label);
       font-weight: bold;
       text-transform: uppercase;
       float: left;
-    }
+  }
 }

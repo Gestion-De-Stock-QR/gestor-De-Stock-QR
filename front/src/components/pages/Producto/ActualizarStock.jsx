@@ -60,16 +60,16 @@ export const ActualizarStock = () => {
   return (
     <div className="container-actualizarStock">
       <div className="container-subb">
-          <button onClick={handleAtras}>Atras</button>
-          <button onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
+          <button className = "boton-atras"onClick={handleAtras}>Atras</button>
+          <button className = "boton-escanear" onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
 
           {saborSeleccionado && (
             <div className="scaner-container"> 
               <h2>Resultado del Escaneo:</h2>
-              <h1>Nombre: {saborSeleccionado.nombre}</h1>
-              <h1>Stock: {saborSeleccionado.stock}</h1>
-              <h1>Umbral: {saborSeleccionado.umbral}</h1>
-
+              <div className="resultado"><p >Producto: {saborSeleccionado.nombre}</p ></div>
+              <div className="resultado"> <p >Stock: {saborSeleccionado.stock}</p ></div>
+              <div className="resultado"><p >Umbral: {saborSeleccionado.umbral}</p ></div>
+            
               <StockControl
                 accion={accion}
                 setAccion={setAccion}
@@ -80,10 +80,10 @@ export const ActualizarStock = () => {
             </div>
           )}
 
-          <div
+           { !saborSeleccionado && (<div 
             id="reader" 
-            style={{ width: "380px", height: "480px", marginTop: "10px" }}
-          ></div>
+            style={{ width: "340px", height: "300px", marginTop: "7px" }}
+          ></div>)}
        </div>   
     </div>
   );

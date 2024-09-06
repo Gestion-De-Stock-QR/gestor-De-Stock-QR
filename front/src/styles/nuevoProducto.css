@@ -4,9 +4,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenes/fond1.jpg') no-repeat center center/cover;
     background-size: cover; 
     background-position: center; 
 }
@@ -19,28 +17,23 @@
 
 .registro-producto{
     background-color:#dedede;
+    box-shadow: 2px 2px 4px 1px;
     padding: 1em; 
     border-radius: 0.7em;
-    background-color: rgb(8 106 134 / 36%);
 }
 
 label {
     font-weight: bold;
-    color: #fdfdfd;
+    color: #222;
 }
 
 input {
     padding: 0.6em;
-    border-radius: 0.5em;
-    border: 1px solid #636e72;
-    background-color: #fff; 
-    color: #2d3436; 
-    border: none;
     outline: none;
 }
 
 input:focus{
-    border-bottom: solid 2px #144c74;
+    border: solid #047440 2px;
     transition: 0.1s;
 }
 
@@ -58,6 +51,7 @@ input:focus{
 .boton-generar-qr {
     max-width: 350px;
     background-color: #bababa; 
+    
     color: #2d3436; 
     border: none;
     border-radius: 1em;
@@ -79,7 +73,6 @@ input:focus{
     gap: 1em;
 }
 
-
 .boton-qr-imprimir {
     margin: auto;
     padding: 0.8em;
@@ -93,7 +86,7 @@ input:focus{
 }
 
 .boton-qr-imprimir:hover {
-    background-color: #2d3436; 
+    background-color: #012e19; 
 }
 
 .container-boton-imprimir-qr {
@@ -110,8 +103,5 @@ input:focus{
     }
     .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
         max-width: 300px; 
-    }
-    .boton-atras,.boton-generar-qr{
-        min-width: 15em;
     }
 }

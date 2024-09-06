@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { obtenerAll } from "../../../servicios/productoService";
 import ProductoCard from "./ProductoCard";
+import "../../../styles/misProductos.css";
 
 export const MisProductos = () => {
   const navigate = useNavigate();
@@ -41,18 +42,21 @@ export const MisProductos = () => {
           </button>
           <h1>Mis productos</h1>
           <div className="productos-grid">
+            
             {productosData.length > 0 ? (
               productosData.map((producto) => (
+                <section className="producto-card">
                 <ProductoCard
-                  key={producto.id}
-                  nombre={producto.nombre}
-                  stock={producto.stock}
-                />
+                key={producto.id}
+                nombre={producto.nombre}
+                stock={producto.stock}
+                /></section>
               ))
             ) : (
               <p>No hay productos disponibles.</p>
             )}
-          </div>
+            </div>
+          
         </div>
      </div>    
 

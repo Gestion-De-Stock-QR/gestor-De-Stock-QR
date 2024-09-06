@@ -3,7 +3,7 @@ import "../../../styles/productoCard.css";
 
 const ProductoCard = ({ nombre, stock }) => {
   return (
-    <div className="producto-card">
+    <div >
       <h3 className="producto-nombre">{nombre}</h3>
       <p className="producto-stock">
         <strong>Stock:</strong> {stock} unidades

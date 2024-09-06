@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   margin: auto;
-  background: radial-gradient(circle, #144c74,#103753,#144c74);
+  background: linear-gradient(to top,#459c75,#047440);
   min-height: 100vh;
 }
 

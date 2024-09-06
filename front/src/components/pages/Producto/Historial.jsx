@@ -41,13 +41,12 @@ export const Historial = () => {
   
   return (
     <div className="container-his">
-      <button onClick={handleAtras}>Atras</button>
-      <button onClick={handleExportarExcel}>Exportar a Excel</button>
+      <button className ="boton-atras-historial"onClick={handleAtras}>Atras</button>
+      <button className="boton-excel" onClick={handleExportarExcel}>Exportar a Excel</button>
       <div>
-        <h1>Historial</h1>
         <table>
           <thead>
-            <tr>
+            <tr className="columnas">
               <th>ID</th>
               <th>Stock Ingresado</th>
               <th>Fecha</th>

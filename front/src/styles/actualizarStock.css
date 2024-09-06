@@ -1,46 +1,29 @@
 .container-actualizarStock{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenes/fondo3.jpeg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 .container-subb {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    background-color: red;
     gap: 1em;
+    background-color: #dedede;
+    border-radius: 1em ;
+    box-shadow: 2px 2px 4px 1px;
+}
+
+.boton-actualizar-stock{
+    background-color: #047440;
+    margin-top: 1em;
+}
+.boton-actualizar-stock:hover{
+    background-color: #04361f;
+    transition: 0.1s;
+}
+
     
-    margin: 0;
-    background-size: cover;  /* Asegura que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-}
 
-
-h1, h2 {
-    margin: 0;
-}
-
-h1 {
-    font-size: 2.5em; 
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-
-@media  (min-width:1000px){
-    button{
-        background-color: black;
-    }
-  }
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2em; 
-    }
-
-    h2 {
-        font-size: 1.5em; 
-    }
-}
