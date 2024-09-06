@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: red;
     gap: 1em;
     background-color: #dedede;
     border-radius: 1em ;
@@ -21,11 +20,10 @@
     margin-top: 1em;
 }
 .boton-actualizar-stock:hover{
-    background-color: #04361f;
+    background-color: #1b2420;
     transition: 0.1s;
 }
 
-
-
-    
-
+.custom-toast{
+    min-width: 500px;
+}

@@ -16,10 +16,10 @@
 }
 
 .registro-producto{
-    background-color:#dedede;
     box-shadow: 2px 2px 4px 1px;
     padding: 1em; 
     border-radius: 0.7em;
+    background-color: #dedede;
 }
 
 label {
