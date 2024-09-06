@@ -15,7 +15,11 @@ export const Historial = () => {
   };
 
   const handleExportarExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(data);
+    const filteredData = data.map(({ productoId, ...rest }) => ({
+      ...rest,
+      nombreProducto: rest.producto ? rest.producto.nombre : 'Nombre no disponible'
+    }));
+    const worksheet = XLSX.utils.json_to_sheet(filteredData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Historial");
     XLSX.writeFile(workbook, "Historial.xlsx");
@@ -38,10 +42,10 @@ export const Historial = () => {
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>{`Error: ${error}`}</p>;
-  
+
   return (
     <div className="container-his">
-      <button className ="boton-atras-historial"onClick={handleAtras}>Atras</button>
+      <button className ="boton-atras-historial" onClick={handleAtras}>Atras</button>
       <button className="boton-excel" onClick={handleExportarExcel}>Exportar a Excel</button>
       <div>
         <table>
@@ -51,7 +55,6 @@ export const Historial = () => {
               <th>Stock Ingresado</th>
               <th>Fecha</th>
               <th>Tipo</th>
-              <th>Producto ID</th>
               <th>Nombre del Producto</th>
             </tr>
           </thead>
@@ -62,14 +65,11 @@ export const Historial = () => {
                 <td data-label="cantidad-stock:">{item.cantidadStock}</td>
                 <td data-label="fecha:">{new Date(item.fecha).toLocaleString()}</td>
                 <td data-label="tipo:">{item.tipo}</td>
-                <td data-label="producto-id:">{item.productoId}</td>
-                <td data-label="nombre:">{item.producto.nombre}</td>
+                <td data-label="nombre:">{item.producto ? item.producto.nombre : 'Nombre no disponible'}</td>
               </tr>
             ))}
-
           </tbody>
         </table>
-        
       </div>
     </div>
   );
