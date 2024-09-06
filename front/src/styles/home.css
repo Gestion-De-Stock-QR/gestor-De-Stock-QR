@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
     background-color: #dedede; 
     border-radius: 10px; 
     padding: 20px; 
@@ -21,19 +21,19 @@
 }
 
 
-button {
-    min-width: 20em;
-    padding: 1em;
+.boton-inicio{
+    min-width: 250px;
+    padding: 0.8em;
     border-radius: 1em;
-    background-color: #3b8060; 
-    color: #222; /* Texto oscuro para contraste */
+    background-color: #157447; 
+    color: #ddd; /* Texto oscuro para contraste */
     outline: none;
     border: none;
     font-weight: bold;
     cursor: pointer;
 }
 
-button:hover {
+.boton-inicio:hover {
     background-color: #04361f;
     transition: 0.3s;
     font-weight: bold;
@@ -55,11 +55,3 @@ h1 {
   }
 
 /* Media queries para hacerlo responsive */
-
-@media(max-width: 800px) {
-    button {
-        min-width: 14em; /* Botones aún más pequeños en pantallas pequeñas */
-        padding: 1em;
-        
-    }
-}

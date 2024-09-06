@@ -66,8 +66,8 @@ export const ActualizarStock = () => {
   return (
     <div className="container-actualizarStock">
       <div className="container-subb">
-        <button className="boton-atras" onClick={handleAtras}>Atras</button>
-        <button className="boton-escanear" onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
+        <button className="boton-inicio" onClick={handleAtras}>Atras</button>
+        <button className="boton-inicio" onClick={handleIniciarEscaneo}>Iniciar escaneo</button>
 
         {saborSeleccionado && (
           <ManejoStock

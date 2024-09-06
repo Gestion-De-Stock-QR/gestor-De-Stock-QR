@@ -32,7 +32,7 @@ export const MisProductos = () => {
   }, []);
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div className="cargando-pagina">Cargando...</div>;
   }
   if (error) {
     return <div>{error}</div>;

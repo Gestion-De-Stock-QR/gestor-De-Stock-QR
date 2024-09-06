@@ -49,7 +49,7 @@ input:focus{
     margin-bottom: 1em;
 }
 .boton-generar-qr {
-    max-width: 350px;
+    min-width: 250px;
     background-color: #bababa; 
     
     color: #2d3436; 
@@ -101,7 +101,7 @@ input:focus{
     .subtitulo-nuevoProducto {
         font-size: 1.8rem; 
     }
-    .form-group, .boton-generar-qr, .container-boton-imprimir-qr {
+    .form-group, .container-boton-imprimir-qr {
         max-width: 300px; 
     }
 }

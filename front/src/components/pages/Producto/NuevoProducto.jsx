@@ -84,7 +84,7 @@ export const NuevoProducto = () => {
   return (
     <div className="container-nuevoProducto">
       <div className="registro-producto">
-        <button className="boton-atras" onClick={handleAtras}>Atrás</button>
+        <button className="boton-inicio" onClick={handleAtras}>Atrás</button>
         <form>
           <div className="form-group">
             <label htmlFor="productName">Nombre del Producto:</label>

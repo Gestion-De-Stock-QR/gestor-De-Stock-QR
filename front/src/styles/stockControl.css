@@ -18,11 +18,11 @@ h2{
 p{
     font-weight: bold;
 }
+
 .input-actualizacion-stock{
     margin-top: 1em;
     min-width: 100%;
 }
-
 
 @media (max-width:1280px){
     .resultado{

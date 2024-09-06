@@ -40,7 +40,7 @@ export const Historial = () => {
     fetchData();
   }, []);
 
-  if (loading) return <p>Cargando...</p>;
+  if (loading) return <p className="cargando-pagina">Cargando...</p>;
   if (error) return <p>{`Error: ${error}`}</p>;
 
   return (

@@ -20,13 +20,20 @@ a:hover {
 
 .toast-container {
   display: grid;
-  grid-template-columns: repeat(1,1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   color: black;
   overflow-x: hidden;
   right: 70%;
   min-width: 500px;
   text-align: center;
+}
+
+button{
+  background-color: #047440;
+}
+button:hover{
+  background-color: #0a2b1b;
 }
 
 @media (max-width: 768px) {

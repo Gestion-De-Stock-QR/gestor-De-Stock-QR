@@ -34,13 +34,14 @@ strong {
 
 .btn-back{
     background-color: #efefef;
+    min-width: 200px;
     color: #222;
 }
   
 .btn-back:hover{
-    color: #047440 ;
+    color: #efefef ;
     transition: 0.2s;
-    background-color: #efefef;
+    background-color: #047440;
 }
 
 @media (max-width:700px){
