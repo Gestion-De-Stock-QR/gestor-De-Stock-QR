@@ -1,5 +1,5 @@
 import axios from "axios";
-const host = "http://localhost:3000";
+const host = "https://heladeria-api-l6wx.onrender.com";
 
 const API_URL = `${host}/historial`;
 
