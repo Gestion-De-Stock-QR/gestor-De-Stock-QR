@@ -43,7 +43,7 @@ export const Home = () => {
           Historial
         </button>
         <button className="boton-inicio" onClick={handleVerNotificaciones}>
-          Notificaciones
+          Stock bajo
         </button>
       </div>
     </div>
