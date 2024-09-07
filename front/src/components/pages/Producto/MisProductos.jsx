@@ -1,4 +1,3 @@
-// MisProductos.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { obtenerAll } from "../../../servicios/productoService";

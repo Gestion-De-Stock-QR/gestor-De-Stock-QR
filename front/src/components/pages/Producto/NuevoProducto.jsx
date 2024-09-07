@@ -6,8 +6,8 @@ import { crearProducto } from "../../../servicios/productoService";
 
 export const NuevoProducto = () => {
   const [nombreDelProducto, setNombreDelProducto] = useState("");
-  const [stockDelProducto, setStockDelProducto] = useState("");
-  const [umbralDelProducto, setUmbralDelProducto] = useState("");
+  const [stockDelProducto, setStockDelProducto] = useState(0);
+  const [umbralDelProducto, setUmbralDelProducto] = useState(0);
   const [qrCodeData, setQrCodeData] = useState("");
   const [qrSize, setQrSize] = useState(300);
   const navigate = useNavigate();
@@ -29,17 +29,11 @@ export const NuevoProducto = () => {
   };
 
   const handleInputChangeStock = (event) => {
-    const value = event.target.value;
-    if (value === "" || /^[1-9]\d*$/.test(value)) {
-      setStockDelProducto(value);
-    }
+    setStockDelProducto(Number(event.target.value));
   };
 
   const handleInputChangeUmbral = (event) => {
-    const value = event.target.value;
-    if (value === "" || /^[0-9]\d*$/.test(value)) {
-      setUmbralDelProducto(value);
-    }
+    setUmbralDelProducto(Number(event.target.value));
   };
 
   const handleCrearProducto = async (producto) => {
@@ -54,18 +48,10 @@ export const NuevoProducto = () => {
   const handleGeneracionQR = () => {
     if (
       nombreDelProducto.trim() === "" ||
-      stockDelProducto === "" ||
-      umbralDelProducto === ""
+      stockDelProducto <= 0 ||
+      umbralDelProducto < 0
     ) {
-      alert("Por favor, completa todos los campos.");
-      return;
-    }
-
-    const stockDelProducto = Number(stockDelProducto);
-    const umbralDelProducto = Number(umbralDelProducto);
-
-    if (stockDelProducto <= 0 || umbralDelProducto < 0) {
-      alert("Stock debe ser mayor a 0 y umbral no puede ser negativo.");
+      alert("Por favor, completa todos los campos correctamente.");
       return;
     }
 
@@ -117,18 +103,15 @@ export const NuevoProducto = () => {
               id="productStock"
               value={stockDelProducto}
               onChange={handleInputChangeStock}
-              placeholder="Ingrese un número positivo"
             />
           </div>
           <div className="form-group">
             <label htmlFor="productUmbral">Umbral:</label>
-            <input
-              className="input-umbral"
+            <input className="input-umbral"
               type="number"
               id="productUmbral"
               value={umbralDelProducto}
               onChange={handleInputChangeUmbral}
-              placeholder="Ingrese un número positivo o 0"
             />
           </div>
           <button
@@ -146,7 +129,7 @@ export const NuevoProducto = () => {
               className="QR"
               id="qrCodeCanvas"
               value={qrCodeData}
-              size={qrSize}
+              size={qrSize}  // Tamaño ajustable del QR
               level={"H"}
               includeMargin={true}
             />
@@ -161,3 +144,6 @@ export const NuevoProducto = () => {
     </div>
   );
 };
+
+export default NuevoProducto;
+
