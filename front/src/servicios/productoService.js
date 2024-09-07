@@ -73,11 +73,20 @@ export const obtenerAll = async () => {
     throw error;
   }
 };
-
+export const obtenerAllBajoUmbral = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/bajoUmbral`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al conseguir datos de la tarea:", error);
+    throw error;
+  }
+};
 export default {
   ingresarStock,
   egresoDeStock,
   crearProducto,
   getProducto,
   obtenerAll,
+  obtenerAllBajoUmbral
 };
