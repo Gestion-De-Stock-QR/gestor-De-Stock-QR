@@ -52,6 +52,7 @@ export const MisProductos = () => {
                 <ProductoCard
                   nombre={producto.nombre}
                   stock={producto.stock}
+                  umbral={producto.umbral}
                 />
               </section>
             ))
