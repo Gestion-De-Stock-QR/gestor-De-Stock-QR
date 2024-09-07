@@ -1,14 +1,9 @@
 import axios from "axios";
-const host = "http://localhost:3000";
+const host = "https://heladeria-api-l6wx.onrender.com";
 
 const API_URL = `${host}/producto`;
 
-//Recibe
-//{
-//"nombre": "frutilla",
-//    "stock": 20,
-//    "umbral": 10
-//  }
+
 
 export const crearProducto = async (producto) => {
   try {
@@ -19,11 +14,6 @@ export const crearProducto = async (producto) => {
   }
 };
 
-//
-// {
-//     "stockIngresado": 10000
-//  }
-// + id
 export const ingresarStock = async (id, stockIngresado) => {
   try {
     const response = await axios.patch(
@@ -37,10 +27,6 @@ export const ingresarStock = async (id, stockIngresado) => {
   }
 };
 
-// {
-//     "stockRetirado" : 100
-// }
-// +id
 export const egresoDeStock = async (id, stockRetirado) => {
   try {
     const response = await axios.patch(
@@ -54,7 +40,7 @@ export const egresoDeStock = async (id, stockRetirado) => {
   }
 };
 
-// id
+
 export const getProducto = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/obtener/${id}`);
