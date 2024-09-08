@@ -51,21 +51,23 @@ export const Historial = () => {
         <table>
           <thead>
             <tr className="columnas">
+            
               <th>ID</th>
               <th>Stock Ingresado</th>
               <th>Fecha</th>
               <th>Tipo</th>
               <th>Nombre del Producto</th>
+            
             </tr>
           </thead>
           <tbody>
             {data.map((item, index) => (
               <tr key={index}>
-                <td data-label="id:">{item.id}</td>
-                <td data-label="cantidad-stock:">{item.cantidadStock}</td>
-                <td data-label="fecha:">{new Date(item.fecha).toLocaleString()}</td>
-                <td data-label="tipo:">{item.tipo}</td>
-                <td data-label="nombre:">{item.producto ? item.producto.nombre : 'Nombre no disponible'}</td>
+                <td >{item.id}</td>
+                <td >{item.cantidadStock}</td>
+                <td>{new Date(item.fecha).toLocaleString()}</td>
+                <td >{item.tipo}</td>
+                <td >{item.producto ? item.producto.nombre : 'Nombre no disponible'}</td>
               </tr>
             ))}
           </tbody>
