@@ -1,8 +1,19 @@
 body {
   font-family: sans-serif;
   margin: auto;
-  background: linear-gradient(to top,#459c75,#047440);
-  min-height: 100vh;
+  
+
+  background: linear-gradient(45deg, red, blue, green, black);
+  background-size: 400% 400%;
+  position: relative;
+  animation: cambiar 5s ease-in-out infinite;
+}
+
+@keyframes cambiar{
+  0%{background-position: 0 50%;}
+  50%{background-position: 100% 50%;}
+  100%{background-position: 0 50%;}
+
 }
 
 * {
